@@ -17,6 +17,7 @@ thumbs.db
 _gsdata_
 node_modules/
 bower_components/
+PSD/
 
 npm-debug.log
 sftp-config.json

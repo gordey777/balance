@@ -1,10 +1,10 @@
 === Responsive Lightbox by dFactory ===
 Contributors: dfactory
 Donate link: http://www.dfactory.eu/
-Tags: gallery, images, lightbox, links, photos, template, theme, photo, image, picture, slideshow, modal, overlay, YouTube, Vimeo, video, videos
+Tags: gallery, images, lightbox, photos, theme, photo, image, picture, slideshow, modal, overlay, video
 Requires at least: 4.0
-Tested up to: 4.6
-Stable tag: 1.6.9
+Tested up to: 4.7.5
+Stable tag: 1.7.2
 License: MIT License
 License URI: http://opensource.org/licenses/MIT
 
@@ -18,11 +18,16 @@ For more information, check out plugin page at [dFactory](http://www.dfactory.eu
 
 = Features include: =
 
-* Select from 6 responsive lightbox scripts (SwipeBox, prettyPhoto, FancyBox, Nivo Lightbox, Image Lightbox, Tos "R" Us)
+* Select from 7 responsive lightbox scripts (SwipeBox, prettyPhoto, FancyBox, Nivo Lightbox, Image Lightbox, Tos "R" Us, Featherlight)
 * Automatically add lightbox to WordPress image galleries
 * Automatically add lightbox to WordPress image links
 * Automatically add lightbox to WordPress video links (YouTube, Vimeo)
+* Automatically add lightbox to widgets content
+* Automatically add lightbox to WordPress comments content
 * WooCommerce product gallery support
+* Visual Composer compatibility
+* Gallery widget
+* Single image widget
 * Option to display single post images as a gallery
 * Option to modify native WP gallery links image size
 * Option to set gallery images title from image title, caption, alt or description
@@ -35,14 +40,18 @@ For more information, check out plugin page at [dFactory](http://www.dfactory.eu
 * Filter hook for embeddding different scripts based on any custom conditions (page, post, category, user id, etc.)
 * .pot file for translations included
 
-= Available Extensions: =
-
-* [Justified Gallery](https://www.dfactory.eu/products/justified-gallery/)
-* [Masonry Image Gallery](https://www.dfactory.eu/products/masonry-image-gallery/)
-* [Lightcase Lightbox](https://www.dfactory.eu/products/lightcase-lightbox/)
-* [PhotoSwipe Lightbox](https://www.dfactory.eu/products/photoswipe-lightbox/)
-* [Strip Lightbox](https://www.dfactory.eu/products/strip-lightbox/)
-
+> <strong>Premium Extensions:</strong>
+> [Photo & Art bundle](https://www.dfactory.eu/products/photo-art-bundle/)
+> [Justified Gallery](https://www.dfactory.eu/products/justified-gallery/)
+> [Expander Gallery](https://www.dfactory.eu/products/expander-gallery/)
+> [Hidden Gallery](https://www.dfactory.eu/products/hidden-gallery/)
+> [Masonry Image Gallery](https://www.dfactory.eu/products/masonry-image-gallery/)
+> [Slider Gallery](https://www.dfactory.eu/products/slider-gallery/)
+> [Lightcase Lightbox](https://www.dfactory.eu/products/lightcase-lightbox/)
+> [PhotoSwipe Lightbox](https://www.dfactory.eu/products/photoswipe-lightbox/)
+> [Lightgallery Lightbox](https://www.dfactory.eu/products/lightgallery-lightbox/)
+> [Strip Lightbox](https://www.dfactory.eu/products/strip-lightbox/)
+> [Fancybox Pro](https://www.dfactory.eu/products/fancybox-pro/)
 
 == Installation ==
 
@@ -60,6 +69,42 @@ No questions yet.
 2. screenshot-2.jpg
 
 == Changelog ==
+
+= 1.7.2 =
+* Fix: Cross-site scripting (XSS) vulnerability
+* Tweak: Improved Jetpack gallery compatibility
+
+= 1.7.1 =
+* New: Tos "R" Us overlay close option
+* Fix: License activation issues
+* Tweak: Featherlight script update to 1.7.0
+* Tweak: Imagelightbox script update
+
+= 1.7.0 =
+* New: Add lightbox to widgets content
+* New: Add lightbox to WordPress comments
+* New: Gallery widget
+* New: Single image widget
+* New: Visual Composer compatibility
+* New: WooCommerce 3.0 compatibility
+* New: [Fancybox Pro](https://www.dfactory.eu/products/fancybox-pro/) premium extension
+* New: [Expander Gallery](https://www.dfactory.eu/products/expander-gallery/) premium extension
+* New: [Hidden Gallery](https://www.dfactory.eu/products/hidden-gallery/) premium extension
+* Tweak: Attachment ID query optimization
+* Tweak: Revamped lightbox settings screen
+* Tweak: Improved custom galleries compatibility
+
+= 1.6.12 =
+* Fix: WooCommerce single product image lightbox
+
+= 1.6.11 =
+* Tweak: Added plugin documentation link
+* Tweak: Nivo lightbox update to 1.3.1
+
+= 1.6.10 =
+* New: Featherlight lightbox script
+* New: [Lightgallery Lightbox](https://www.dfactory.eu/products/lightgallery-lightbox/) premium extension
+* New: [Slider Gallery](https://www.dfactory.eu/products/slider-gallery/) premium extension
 
 = 1.6.9 =
 * New: [PhotoSwipe Lightbox](https://www.dfactory.eu/products/photoswipe-lightbox/) premium extension
@@ -277,6 +322,5 @@ Initial release
 
 == Upgrade Notice ==
 
-= 1.6.9 =
-* New: [PhotoSwipe Lightbox](https://www.dfactory.eu/products/photoswipe-lightbox/) premium extension
-* Fix: data-rel attribute missing in multiline links
+= 1.7.2 =
+* Fix: Cross-site scripting (XSS) vulnerability
