@@ -7,10 +7,11 @@ button {
   font-family: $base-font-family;
   font-size: $base-font-size;
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.1;
 
   display: inline-block;
 
+  box-sizing: border-box;
   padding: .75em 1em;
 
   cursor: pointer;
@@ -21,7 +22,8 @@ button {
   text-decoration: none;
 
   color: #fff;
-  border: none;
+  border: $base-border;
+  border-color: $action-color;
   border-radius: $base-border-radius;
   background-color: $action-color;
 
@@ -29,6 +31,7 @@ button {
   &:hover,
   &:focus {
     color: #fff;
+    border-color: darken($action-color, 15%);
     background-color: darken($action-color, 15%);
   }
   &:active {
@@ -40,12 +43,12 @@ button {
     opacity: .5;
   }
   &.red-button {
-
-
     box-sizing: border-box;
     width: 100%;
     width: 100%;
     padding: $base-spacing / 3 ;
+
+    transition: all .3s;
 
     color: #fff;
   }
