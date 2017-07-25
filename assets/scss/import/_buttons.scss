@@ -39,4 +39,14 @@ button {
 
     opacity: .5;
   }
+  &.red-button {
+
+
+    box-sizing: border-box;
+    width: 100%;
+    width: 100%;
+    padding: $base-spacing / 3 ;
+
+    color: #fff;
+  }
 }

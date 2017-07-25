@@ -1,7 +1,7 @@
 // Font Sizes
 $base-font-size: 16px;
 $em-base: $base-font-size;
-$base-font-family: 'Roboto Condensed', sans-serif;
+$base-font-family: Open Sans;
 $heading-font-family: $base-font-family;
 
 // font weight
@@ -20,17 +20,17 @@ $base-line-height: 1.1;
 $heading-line-height: 1.2;
 
 // Other Sizes
-$width: 980px;
+$width: 1200px;
 $footer: 50px;
 $footer_margin: $footer - 2 * $footer;
-$base-border-radius: 3px;
+$base-border-radius: 0;
 $base-spacing: $base-line-height * 1em;
 $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 
 // Colors
 $orange: orange;
-$red: red;
+$red: #c30000;
 $blue: #477dca;
 $gray-medium: #999;
 $gray-dark: #333;
@@ -38,7 +38,7 @@ $gray-light: #ddd;
 
 // Font Colors
 $base-font-color: $gray-dark;
-$action-color: $blue;
+$action-color: $red;
 
 // Border
 $base-border-color: $gray-light;

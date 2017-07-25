@@ -58,6 +58,7 @@ select[multiple=multiple] {
   outline: none;
   background-color: $base-background-color;
   box-shadow: $form-box-shadow;
+  border-color:#969696;
   &:hover {
     border-color: shade($base-border-color, 20%);
   }
