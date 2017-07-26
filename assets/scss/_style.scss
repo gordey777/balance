@@ -66,6 +66,7 @@ picture {
   overflow: hidden;
 
   width: 100%;
+  //max-width: 1920px;
   height: auto !important;
   height: 100%;
   min-height: 100%;
@@ -80,8 +81,11 @@ picture {
 }
 
 header {
-  position: relative;
+  position: absolute;
   z-index: 2;
+  top: 0;
+  right: 0;
+  left: 0;
   .logo {
     padding-top: 30px;
     img {
@@ -189,14 +193,10 @@ header {
   }
 }
 
-.nav_wrapp {
+
+//HEADER MENU
+.nav__header {
   background: #000;
-  nav {
-    ul {
-      //@extend .justify-child;
-      //@extend .clearfix;
-    }
-  }
   .headnav {
     font-size: 100%;
 
@@ -262,13 +262,13 @@ article {
 
 
 .section-1 {
-  height: 872px;
-  margin-top: -194px;
-  padding-top: 250px;
-  padding-bottom: 50px;
+  position: relative;
 
-  border: 0 solid transparent;
-  border-bottom: 5px solid #fff;
+  min-height: 850px;
+  //margin-top: -194px;
+  padding-top: 250px;
+  padding-bottom: 4vw;
+
   background: url('../img/portfolio_slide2.jpg') no-repeat center center;
   background-size: cover;
   .top-title {
@@ -301,7 +301,61 @@ article {
       padding-left: 5px;
     }
   }
+  &:before {
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+
+    display: inline-block;
+
+    height: 0;
+
+    content: '';
+
+    border: 100vw solid transparent;
+    border-right: 100vw solid white;
+    border-bottom: 3vw solid #fff;
+  }
 }
+
+.advantages {
+  padding-top: 35px;
+  padding-bottom: 50px;
+
+  text-align: center;
+  .sec-title {
+    font-size: 28px;
+
+    display: inline-block;
+
+    margin-bottom: 15px;
+  }
+  .red-subtitle {
+    font-size: 13px;
+    line-height: 1.4;
+
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    text-align: left;
+
+    color: $red;
+  }
+  .icon {
+    margin-bottom: 10px;
+    img {
+      margin-bottom: 10px;
+    }
+  }
+  .red-button {
+    max-width: 300px;
+  }
+}
+
+
 
 
 
@@ -331,7 +385,7 @@ article {
     float: left;
 
     width: 50%;
-    height: 55vw;
+    height: 41vw;
 
     background-repeat: no-repeat;
     background-position: center center;
@@ -376,7 +430,7 @@ footer {
   color: #fff;
   background-color: #1c1c1c;
   .footer_nav {
-    padding-bottom: 20px;
+    //padding-bottom: 20px;
   }
   .footer_menu {
     font-size: 14px;
@@ -391,7 +445,7 @@ footer {
 
     text-align: center;
 
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: space-between;
     a {
       display: inline-block;
@@ -404,13 +458,15 @@ footer {
       }
     }
     li {
-      margin-right: auto;
-      margin-left: auto;
-
+      //margin-right: auto;
+      //margin-left: auto;
       text-align: left;
     }
     > li {
       display: inline-block;
+
+      min-width: 150px;
+      padding-bottom: 20px;
       > a {
         font-weight: bold;
 
@@ -428,7 +484,7 @@ footer {
       }
     }
   }
-  .copyright{
+  .copyright {
     font-size: 12px;
   }
   .socials {
@@ -474,3 +530,6 @@ footer {
   }
 }
 
+@media (max-width: 768px) {
+  //
+}
