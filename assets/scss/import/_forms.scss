@@ -27,6 +27,7 @@ label {
   }
 }
 
+.file_input,
 input[type='color'],
 input[type='date'],
 input[type='datetime'],
@@ -45,20 +46,19 @@ textarea,
 select[multiple=multiple] {
   font-family: $base-font-family;
   font-size: $base-font-size;
-
+line-height: 1.1;
   box-sizing: border-box;
   width: 100%;
-
-  padding: $base-spacing / 3;
+  padding: 14px 20px;
 
   transition: $base-transition;
 
   border: $base-border;
+  border-color: #969696;
   border-radius: $base-border-radius;
   outline: none;
   background-color: $base-background-color;
   box-shadow: $form-box-shadow;
-  border-color:#969696;
   &:hover {
     border-color: shade($base-border-color, 20%);
   }
@@ -101,4 +101,39 @@ select {
   width: auto;
   max-width: 100%;
   margin-bottom: $base-spacing;
+}
+
+.file_input {
+  position: relative;
+
+  display: inline-block;
+color: rgba(#000, .7);
+  width: 100%;
+
+  text-align: left;
+  i {
+    font-size: 30px;
+
+    position: absolute;
+    top: 8px;
+    right: 20px;
+  }
+}
+.file_label {
+  position: relative;
+
+  margin: 0;
+  padding: 0;
+  input[type='file'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: inline-block;
+
+    width: 0;
+    height: 0;
+
+    opacity: 0;
+  }
 }
