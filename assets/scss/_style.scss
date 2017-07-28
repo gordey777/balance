@@ -86,6 +86,8 @@ header {
   top: 0;
   right: 0;
   left: 0;
+
+  overflow: hidden;
   .logo {
     padding-top: 30px;
     img {
@@ -98,9 +100,8 @@ header {
     padding-top: 25px;
   }
   .catalog_load {
-    display: inline-block;
-
-    height: 100%;
+    //display: inline-block;
+    //height: 100%;
     padding-top: 25px;
     a {
       font-weight: bold;
@@ -156,43 +157,16 @@ header {
 
       text-align: center;
     }
-    &:before {
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      right: 100%;
-      bottom: 0;
-      left: -9999px;
-
-      display: inline-block;
-
-      content: '';
-
-      background-color: #f2f4f5;
-    }
-    &:after {
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      right: -9999px;
-      bottom: 0;
-      left: 0;
-
-      display: inline-block;
-
-      content: '';
-
-      background-color: rgba(#f2f4f5,.5);
-    }
-  }
-  .left-bg {
-    //
-  }
-  .right-bg {
-    //
   }
 }
 
+.video_wrapp {
+  iframe {
+    display: inline-block;
+
+    height: 50vw;
+  }
+}
 
 //HEADER MENU
 .nav__header {
@@ -207,16 +181,14 @@ header {
     display:         flex;
 
     width: 100%;
-
-    text-align: center;
+    //text-align: center;
 
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: space-between;
     li {
       display: inline-block;
       //width: 350px;
-
-      margin: 0 auto;
+      //margin: 0 auto;
 
       text-align: center;
       a {
@@ -293,20 +265,38 @@ header {
 .slides-content {
   .ithem {
     position: relative;
-    .slide-cont {
+    .slide-cont_wrapp {
       position: absolute;
       z-index: 1;
-      top: 20%;
-      left: 5%;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
 
-      display: inline-block;
+      display: -webkit-flex;
+      display:    -moz-flex;
+      display:     -ms-flex;
+      display:      -o-flex;
+      display:         flex;
 
-      width: 90%;
-      height: 60%;
-      padding: 35px;
+      background: transparent;
 
-      border-bottom: 2px solid $red;
-      background: rgba(#fff, .8);
+      align-items: center;
+      justify-content: center;
+      .slide-cont {
+        //position: absolute;
+        display: inline-block;
+
+        width: 85%;
+        //top: 20%;
+        //left: 5%;
+        //margin-left: 5%;
+        //height: 60%;
+        padding: 35px;
+
+        border-bottom: 2px solid $red;
+        background: rgba(#fff, .8);
+      }
     }
   }
 }
@@ -385,7 +375,27 @@ article {
   @extend .clearfix;
 }
 
+h1.gray-title {
+  font-size: 18px;
+  font-weight: bold;
 
+  text-transform: uppercase;
+}
+.gray-title {
+  display: inline-block;
+
+  width: 100%;
+  margin-bottom: 25px;
+  padding: 20px;
+
+  background-color: #f2f4f5;
+}
+
+
+
+.content-wrapp {
+  margin-bottom: 40px;
+}
 .section-1 {
   position: relative;
 
@@ -393,6 +403,8 @@ article {
   //margin-top: -194px;
   padding-top: 250px;
   padding-bottom: 4vw;
+
+  text-align: center;
 
   background: url('../img/portfolio_slide2.jpg') no-repeat center center;
   background-size: cover;
@@ -462,7 +474,7 @@ article {
     position: absolute;
     top: 49%;
 
-    display: inline-block;
+    display: none;
 
     width: 88px;
     height: 1px;
@@ -992,6 +1004,66 @@ footer {
   }
 }
 
+@media (min-width: 992px) {
+  .section-title {
+    &:before,
+    &:after {
+      display: inline-block;
+    }
+  }
+  .flex-row {
+    display: -webkit-flex;
+    display:    -moz-flex;
+    display:     -ms-flex;
+    display:      -o-flex;
+    display:         flex;
+
+    flex-flow: row wrap;
+    align-content: stretch;
+  }
+  .video_wrapp {
+    iframe {
+      display: inline-block;
+
+      height: 100%;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .left-bg {
+    &:before {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      bottom: -99px;
+      left: -9999px;
+
+      display: inline-block;
+
+      content: '';
+
+      background-color: #f2f4f5;
+    }
+  }
+  .right-bg {
+    &:after {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: -9999px;
+      bottom: -99px;
+      left: 0;
+
+      display: inline-block;
+
+      content: '';
+
+      background-color: rgba(#f2f4f5,.5);
+    }
+  }
+}
 @media (max-width: 768px) {
   //
 }

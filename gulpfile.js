@@ -1,5 +1,5 @@
 /* if work with html set TRUE, else - FALSE */
-var htmlOWp = true,
+var htmlOWp = false,
   // set wordpress template folder
   wpThemeName = 'wp-balance',
   // and set wordpress domain
@@ -219,7 +219,7 @@ gulp.task('browserSync', function() {
       notify: false,
       proxy: wpDomain,
       host: wpDomain,
-      port: 9090
+      port: 9091
     });
   }
 });

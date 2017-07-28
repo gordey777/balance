@@ -22,6 +22,15 @@ if (typeof jQuery === 'undefined') {
 }
 
 jQuery(document).ready(function() {
+  function top_padding() {
+    var top_padding = $('header').height() + 50;
+    $('.section-1').css('padding-top', top_padding + 'px');
+  }
+  top_padding();
+  jQuery(window).resize(function() {
+    top_padding();
+
+  });
   //SLIDERS OPTIONS
   jQuery('.two-slides.owl-carousel').owlCarousel({
     lazyLoad: true,
@@ -83,4 +92,6 @@ jQuery(document).ready(function() {
 
     });
   })(jQuery);
+
+
 });
