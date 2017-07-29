@@ -409,7 +409,38 @@ h1.gray-title {
   background-color: #f2f4f5;
 }
 
+.icon-wrapp {
+  line-height: 85px;
 
+  display: inline-block;
+
+  box-sizing: border-box;
+  width: 85px;
+  height: 85px;
+  margin: 0 auto 20px auto;
+
+  text-align: center;
+  vertical-align: middle;
+
+  border: 1px solid $gray-dark;
+  border-radius: 100%;
+  img {
+    display: inline-block;
+    float: none;
+
+    margin: auto;
+  }
+}
+
+.advantages-about {
+  margin-bottom: 20px;
+  .section-title {
+    margin-bottom: 40px;
+  }
+  .icon {
+    margin-bottom: 25px;
+  }
+}
 
 .content-wrapp {
   margin-bottom: 40px;

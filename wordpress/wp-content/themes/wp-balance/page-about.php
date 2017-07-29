@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php /* Template Name: About */ get_header(); ?>
 
   <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
@@ -18,26 +18,35 @@
     <article id="post-<?php the_ID(); ?>" <?php post_class('slider-section'); ?>>
       <div class="container">
         <div class="row">
-          <div class="content-wrapp">
+          <div class="col-md-12 content-wrapp">
             <?php the_content(); ?>
           </div>
 
-          <?php if( have_rows('slider' ) ): ?>
-            <div class="two-slides owl-carousel owl-theme slides-content">
-              <?php while ( have_rows('slider' ) ) : the_row(); ?>
-                <?php $image = get_sub_field('img'); ?>
-                <div class="ithem">
-                  <?php if ( !empty($image)) : ?>
-                      <img src="<?php echo $image['sizes']['medium'] ?>">
-                  <?php endif; ?>
-                  <div class="slide-cont_wrapp">
-                    <div class="slide-cont">
-                      <?php the_sub_field('slide_content'); ?>
+          <?php if( have_rows('adventage_about') ): ?>
+            <div class="col-md-10 col-md-offset-1 advantages-about">
+              <h2 class="section-title"><?php the_field('adventage_title'); ?></h2>
+
+              <div class="clearfix"></div>
+                <?php while ( have_rows('adventage_about') ) : the_row(); ?>
+                  <?php $image = get_sub_field('icon'); ?>
+                  <div class="col-md-4 col-sm-6 icon">
+                    <div class="row">
+                      <?php if ( !empty($image)) : ?>
+                        <div class="col-sm-12 col-xs-4">
+                          <div class="icon-wrapp">
+                            <img src="<?php echo $image['url'] ?>">
+                          </div>
+                        </div>
+                      <?php endif; ?>
+                      <div class="col-sm-12 col-xs-8">
+                        <p><?php the_sub_field('content'); ?></p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              <?php endwhile; ?>
-             </div>
+                <?php endwhile; ?>
+
+              <div class="clearfix"></div>
+            </div>
           <?php endif; ?>
 
         </div><!-- /.row -->

@@ -10,110 +10,101 @@
       </div><!-- /.container -->
     </section><!-- /section -->
 
+    <?php if( have_rows('advantages' ) ): ?>
+      <?php while ( have_rows('advantages' ) ) : the_row(); ?>
+        <section class="advantages two-bloks">
+          <div class="container">
+            <div class="row flex-row">
+              <div class="col-md-6 video_wrapp">
+                <?php echo get_sub_field('video')["iframe"]; ?>
+              </div>
+              <div class="col-md-6">
 
+                <h2 class="section-title"><?php the_sub_field('title'); ?></h2>
+                <span class="red-subtitle"><?php the_sub_field('subtitle'); ?></span>
+                <div class="clearfix"></div>
 
-
-  <?php if( have_rows('advantages' ) ): ?>
-    <?php while ( have_rows('advantages' ) ) : the_row(); ?>
-      <section class="advantages two-bloks">
-        <div class="container">
-          <div class="row flex-row">
-            <div class="col-md-6 video_wrapp">
-              <?php echo get_sub_field('video')["iframe"]; ?>
-            </div>
-            <div class="col-md-6">
-
-              <h2 class="section-title"><?php the_sub_field('title'); ?></h2>
-              <span class="red-subtitle"><?php the_sub_field('subtitle'); ?></span>
-              <div class="clearfix"></div>
-
-              <?php if( get_sub_field('sub_adventage' ) ): ?>
-                <?php while ( has_sub_field('sub_adventage' ) ) : ?>
-                  <?php $image = get_sub_field('icon'); ?>
-                  <div class="col-md-3 col-sm-6 icon">
-                    <div class="row">
-                      <?php if ( !empty($image)) : ?>
-                      <div class="col-sm-12 col-xs-4">
-                          <img src="<?php echo $image['url'] ?>">
+                <?php if( get_sub_field('sub_adventage' ) ): ?>
+                  <?php while ( has_sub_field('sub_adventage' ) ) : ?>
+                    <?php $image = get_sub_field('icon'); ?>
+                    <div class="col-md-3 col-sm-6 icon">
+                      <div class="row">
+                        <?php if ( !empty($image)) : ?>
+                        <div class="col-sm-12 col-xs-4">
+                            <img src="<?php echo $image['url'] ?>">
+                          </div>
+                        <?php endif; ?>
+                        <div class="col-sm-12 col-xs-8">
+                          <p><?php the_sub_field('content'); ?></p>
                         </div>
-                      <?php endif; ?>
-                      <div class="col-sm-12 col-xs-8">
-                        <p><?php the_sub_field('content'); ?></p>
                       </div>
                     </div>
-                  </div>
+                  <?php endwhile; ?>
+                <?php endif; ?>
+                <div class="clearfix"></div>
+                <a href="<?php the_sub_field('link'); ?>" class="button red-button"><?php the_sub_field('link_title'); ?></a>
+              </div>
+            </div><!-- /.row -->
+          </div><!-- /.container -->
+        </section><!-- /section -->
+      <?php  endwhile; ?>
+    <?php endif; ?>
 
-                <?php endwhile; ?>
+    <?php if( have_rows('before_after' ) ): ?>
+      <?php while ( have_rows('before_after' ) ) : the_row(); ?>
+        <section class="before-after">
+          <div class="red-line">
+            <h2><?php the_sub_field('title'); ?></h2>
+          </div>
+          <div class="photo_before" style="background-image: url(<?php echo get_sub_field('img_before')['sizes']['medium']; ?>);">
+            <span class="before">До</span>
+          </div>
+          <div class="photo_after" style="background-image: url(<?php echo get_sub_field('img_after')['sizes']['medium']; ?>);">
+            <span class="after">После</span>
+            <a href="<?php the_sub_field('link'); ?>" class="button red-button">Посетить объект</a>
+          </div>
+          <div class="clearfix"></div>
+        </section><!-- /section -->
+      <?php endwhile; ?>
+    <?php endif; ?>
+
+
+    <?php if( have_rows('home_slider' ) ): ?>
+      <?php while ( have_rows('home_slider' ) ) : the_row(); ?>
+        <section class="slider-section">
+          <div class="container">
+            <div class="row">
+              <h2 class="section-title"><?php the_sub_field('title'); ?></h2>
+              <span class="red-subtitle"><?php the_sub_field('subtitle'); ?></span>
+              <p><?php the_sub_field('description'); ?></p>
+
+              <?php if( get_sub_field('sub_slider' ) ): ?>
+                <div class="two-slides owl-carousel owl-theme slides-content">
+                  <?php while ( has_sub_field('sub_slider' ) ) : ?>
+                    <?php $image = get_sub_field('img'); ?>
+
+                    <div class="ithem">
+                      <?php if ( !empty($image)) : ?>
+                        <img src="<?php echo $image['sizes']['medium']; ?>">
+                      <?php endif; ?>
+                      <div class="slide-cont_wrapp">
+                        <div class="slide-cont">
+                          <?php the_sub_field('slide_content'); ?>
+                          <a href="<?php the_sub_field('link'); ?>" class="slide-link">Связаться с нами +</a>
+                        </div>
+                      </div>
+                    </div>
+                  <?php endwhile; ?>
+                </div><!-- /.two-slides -->
               <?php endif; ?>
 
-              <div class="clearfix"></div>
-              <a href="<?php the_sub_field('link'); ?>" class="button red-button"><?php the_sub_field('link_title'); ?></a>
-            </div>
-          </div><!-- /.row -->
-        </div><!-- /.container -->
-      </section><!-- /section -->
-    <?php  endwhile; ?>
-  <?php endif; ?>
+            </div><!-- /.row -->
+          </div><!-- /.container -->
+        </section><!-- /section -->
+      <?php endwhile; ?>
+    <?php endif; ?>
 
-    <section class="before-after">
-      <div class="red-line">
-        <h2>Большое лучше видится в процессе</h2>
-      </div>
-      <div class="photo_before" style="background-image: url(<?php echo get_template_directory_uri(); ?>/img/home-before.jpg);">
-        <span class="before">До</span>
-      </div>
-      <div class="photo_after" style="background-image: url(<?php echo get_template_directory_uri(); ?>/img/home-after.jpg);">
-        <span class="after">После</span>
-        <a href="#" class="button red-button">Посетить объект</a>
-      </div>
-      <div class="clearfix"></div>
-    </section><!-- /section -->
 
-    <section class="slider-section">
-      <div class="container">
-        <div class="row">
-          <h2 class="section-title">Ремонт под ключ</h2>
-          <span class="red-subtitle">значит, Вам не о чем беспокоиться </span>
-          <p>Мы предлагаем под ключ полный комплекс услуг, освобождая своих клиентов от массы хлопот и предлагая им высокоуровневый сервис.</p>
-          <div class="two-slides owl-carousel owl-theme slides-content">
-            <div class="ithem">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/content-slide1.jpg" alt="">
-              <div class="slide-cont_wrapp">
-                <div class="slide-cont">
-                  <h3 class="title">Дизайн-проект</h3>
-                  <p>Для каждого вверенного нам объекта наши специалисты разрабатывают уникальный дизайн-проект, оптимально отвечающий всем запросам заказчика. На протяжении всех этапов реализации проекта ведется строгий авторский надзор.</p>
-                  <a href="#" class="slide-link">Связаться с нами +</a>
-                </div>
-              </div>
-            </div>
-            <div class="ithem">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/content-slide2.jpg" alt="">
-              <div class="slide-cont_wrapp">
-                <div class="slide-cont_wrapp">
-                  <div class="slide-cont">
-                    <h3 class="title">Дизайн-проект</h3>
-                    <p>Для каждого вверенного нам объекта наши специалисты разрабатывают уникальный дизайн-проект, оптимально отвечающий всем запросам заказчика. На протяжении всех этапов реализации проекта ведется строгий авторский надзор.</p>
-                    <a href="#" class="slide-link">Связаться с нами +</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="ithem">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/content-slide1.jpg" alt="">
-              <div class="slide-cont_wrapp">
-                <div class="slide-cont_wrapp">
-                  <div class="slide-cont">
-                    <h3 class="title">Дизайн-проект</h3>
-                    <p>Для каждого вверенного нам объекта наши специалисты разрабатывают уникальный дизайн-проект, оптимально отвечающий всем запросам заказчика. На протяжении всех этапов реализации проекта ведется строгий авторский надзор.</p>
-                    <a href="#" class="slide-link">Связаться с нами +</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div><!-- /.row -->
-      </div><!-- /.container -->
-    </section><!-- /section -->
 
     <section class="cont-form" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/form-bg1.jpg');">
       <div class="container">
@@ -415,7 +406,7 @@
             <div class="feature-img">
               <img src="<?php echo get_template_directory_uri(); ?>/img/news-loop.jpg" alt="">
             </div>
-            <span class="date">19.02.2015</span>
+            <span class="date">19/02/2015</span>
             <h2 class="inner-title">Дизайн-проект</h2>
             <p>Для каждого вверенного нам объекта наши специалисты разрабатывают уникальный</p>
             <a href="#" class="post-link">Подробнее</a>
@@ -456,8 +447,8 @@
         </div><!-- /.row -->
       </div><!-- /.container -->
     </section><!-- /section -->
-    <?php get_template_part('loop'); ?>
-    <?php get_template_part('pagination'); ?>
+    <?php //get_template_part('loop'); ?>
+    <?php //get_template_part('pagination'); ?>
 
 <?php get_footer(); ?>
 
