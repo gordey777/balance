@@ -118,20 +118,24 @@
             <div class="ithem">
               <img src="<?php echo get_template_directory_uri(); ?>/img/content-slide2.jpg" alt="">
               <div class="slide-cont_wrapp">
-                <div class="slide-cont">
-                  <h3 class="title">Дизайн-проект</h3>
-                  <p>Для каждого вверенного нам объекта наши специалисты разрабатывают уникальный дизайн-проект, оптимально отвечающий всем запросам заказчика. На протяжении всех этапов реализации проекта ведется строгий авторский надзор.</p>
-                  <a href="#" class="slide-link">Связаться с нами +</a>
+                <div class="slide-cont_wrapp">
+                  <div class="slide-cont">
+                    <h3 class="title">Дизайн-проект</h3>
+                    <p>Для каждого вверенного нам объекта наши специалисты разрабатывают уникальный дизайн-проект, оптимально отвечающий всем запросам заказчика. На протяжении всех этапов реализации проекта ведется строгий авторский надзор.</p>
+                    <a href="#" class="slide-link">Связаться с нами +</a>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="ithem">
               <img src="<?php echo get_template_directory_uri(); ?>/img/content-slide1.jpg" alt="">
               <div class="slide-cont_wrapp">
-                <div class="slide-cont">
-                  <h3 class="title">Дизайн-проект</h3>
-                  <p>Для каждого вверенного нам объекта наши специалисты разрабатывают уникальный дизайн-проект, оптимально отвечающий всем запросам заказчика. На протяжении всех этапов реализации проекта ведется строгий авторский надзор.</p>
-                  <a href="#" class="slide-link">Связаться с нами +</a>
+                <div class="slide-cont_wrapp">
+                  <div class="slide-cont">
+                    <h3 class="title">Дизайн-проект</h3>
+                    <p>Для каждого вверенного нам объекта наши специалисты разрабатывают уникальный дизайн-проект, оптимально отвечающий всем запросам заказчика. На протяжении всех этапов реализации проекта ведется строгий авторский надзор.</p>
+                    <a href="#" class="slide-link">Связаться с нами +</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -211,53 +215,29 @@
                   <div class="two-slides owl-carousel owl-theme slides-content">
                     <div class="ithem">
                       <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
-                      <div class="slide-cont">
-                        <h3 class="title">День 1</h3>
-                        <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
+                      <div class="slide-cont_wrapp">
+                        <div class="slide-cont">
+                          <h3 class="title">День 1</h3>
+                          <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
+                        </div>
                       </div>
                     </div>
                     <div class="ithem">
                       <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
-                      <div class="slide-cont">
-                        <h3 class="title">День 2</h3>
-                        <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
+                      <div class="slide-cont_wrapp">
+                        <div class="slide-cont">
+                          <h3 class="title">День 2</h3>
+                          <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
+                        </div>
                       </div>
                     </div>
                     <div class="ithem">
                       <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
-                      <div class="slide-cont">
-                        <h3 class="title">День 3</h3>
-                        <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-              <div class="col-md-4 video">
-                  <img src="<?php echo get_template_directory_uri(); ?>/img/video-holder-tab.jpg" alt="">
-              </div>
-            </div>
-            <div class="tabs__content">
-              <div class="col-md-8 tab-slider">
-                  <div class="two-slides owl-carousel owl-theme slides-content">
-                    <div class="ithem">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
-                      <div class="slide-cont">
-                        <h3 class="title">День 1</h3>
-                        <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
-                      </div>
-                    </div>
-                    <div class="ithem">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
-                      <div class="slide-cont">
-                        <h3 class="title">День 2</h3>
-                        <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
-                      </div>
-                    </div>
-                    <div class="ithem">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
-                      <div class="slide-cont">
-                        <h3 class="title">День 3</h3>
-                        <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
+                      <div class="slide-cont_wrapp">
+                        <div class="slide-cont">
+                          <h3 class="title">День 3</h3>
+                          <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -271,23 +251,65 @@
                   <div class="two-slides owl-carousel owl-theme slides-content">
                     <div class="ithem">
                       <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
-                      <div class="slide-cont">
-                        <h3 class="title">День 1</h3>
-                        <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
+                      <div class="slide-cont_wrapp">
+                        <div class="slide-cont">
+                          <h3 class="title">День 1</h3>
+                          <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
+                        </div>
                       </div>
                     </div>
                     <div class="ithem">
                       <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
-                      <div class="slide-cont">
-                        <h3 class="title">День 2</h3>
-                        <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
+                      <div class="slide-cont_wrapp">
+                        <div class="slide-cont">
+                          <h3 class="title">День 2</h3>
+                          <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
+                        </div>
                       </div>
                     </div>
                     <div class="ithem">
                       <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
-                      <div class="slide-cont">
-                        <h3 class="title">День 3</h3>
-                        <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
+                      <div class="slide-cont_wrapp">
+                        <div class="slide-cont">
+                          <h3 class="title">День 3</h3>
+                          <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-md-4 video">
+                  <img src="<?php echo get_template_directory_uri(); ?>/img/video-holder-tab.jpg" alt="">
+              </div>
+            </div>
+            <div class="tabs__content">
+              <div class="col-md-8 tab-slider">
+                  <div class="two-slides owl-carousel owl-theme slides-content">
+                    <div class="ithem">
+                      <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
+                      <div class="slide-cont_wrapp">
+                        <div class="slide-cont">
+                          <h3 class="title">День 1</h3>
+                          <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ithem">
+                      <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
+                      <div class="slide-cont_wrapp">
+                        <div class="slide-cont">
+                          <h3 class="title">День 2</h3>
+                          <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ithem">
+                      <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
+                      <div class="slide-cont_wrapp">
+                        <div class="slide-cont">
+                          <h3 class="title">День 3</h3>
+                          <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
+                        </div>
                       </div>
                     </div>
                   </div>

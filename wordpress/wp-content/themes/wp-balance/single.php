@@ -1,34 +1,62 @@
 <?php get_header(); ?>
 
   <?php if (have_posts()): while (have_posts()) : the_post(); ?>
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-      <h1 class="single-title inner-title"><?php the_title(); ?></h1>
-      <?php if ( has_post_thumbnail()) :?>
-        <a class="single-thumb" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-          <?php the_post_thumbnail(); // Fullsize image for the single post ?>
-        </a>
-      <?php endif; ?><!-- /post thumbnail -->
+    <section class="section-1" role="main" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>);">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h1 class="gray-title"><?php the_title(); ?></h1>
+          </div>
+          <div class="col-sm-4 col-sm-offset-4">
+            <a href="<?php the_field('link'); ?>" class="button red-button">Получить бесплатную консультацию</a>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /section -->
 
-      <span class="date"><?php the_time('d F Y'); ?> <?php the_time('H:i'); ?></span>
-      <span class="author"><?php _e( 'Published by', 'wpeasy' ); ?> <?php the_author_posts_link(); ?></span>
-      <span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'wpeasy' ), __( '1 Comment', 'wpeasy' ), __( '% Comments', 'wpeasy' )); ?></span><!-- /post details -->
+    <article id="post-<?php the_ID(); ?>" <?php post_class('slider-section'); ?>>
+      <div class="container">
+        <div class="row">
+          <div class="content-wrapp">
+            <?php the_content(); ?>
+          </div>
 
-      <?php the_content(); ?>
+          <?php if( have_rows('slider' ) ): ?>
+            <div class="two-slides owl-carousel owl-theme slides-content">
+              <?php while ( have_rows('slider' ) ) : the_row(); ?>
+                <?php $image = get_sub_field('img'); ?>
+                <div class="ithem">
+                  <?php if ( !empty($image)) : ?>
+                      <img src="<?php echo $image['sizes']['medium'] ?>">
+                  <?php endif; ?>
+                  <div class="slide-cont_wrapp">
+                    <div class="slide-cont">
+                      <?php the_sub_field('slide_content'); ?>
+                    </div>
+                  </div>
+                </div>
+              <?php endwhile; ?>
+             </div>
+          <?php endif; ?>
 
-      <?php the_tags( __( 'Tags: ', 'wpeasy' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </article><!-- /section -->
 
-      <p><?php _e( 'Categorised in: ', 'wpeasy' ); the_category(', '); // Separated by commas ?></p>
 
-      <p><?php _e( 'This post was written by ', 'wpeasy' ); the_author(); ?></p>
-
-      <?php edit_post_link(); ?>
-
-      <?php comments_template(); ?>
-
-    </article>
+    <section class="cont-form" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/form-bg1.jpg');">
+      <div class="container">
+        <div class="row">
+          <h2>У нас много примеров выполненных работ</h2>
+          <p>здесь представлены лучшие из лучших. Если в нашем каталоге вы не нашли нужного интерьера - звоните, мы предоставим необходимый материал или разработаем новую концепцию!</p>
+          <div class="col-sm-4 col-sm-offset-4">
+            <a href="#" class="button red-button">Получить консультацию</a>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /section -->
   <?php endwhile; endif; ?>
 
-  <?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

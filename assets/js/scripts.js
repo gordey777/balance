@@ -35,13 +35,13 @@ jQuery(document).ready(function() {
   jQuery('.two-slides.owl-carousel').owlCarousel({
     lazyLoad: true,
     slideSpeed: 5000,
-    nav: true,
     autoplay: true,
     autoplayHoverPause: true,
     loop: true,
     dots: false,
     smartSpeed: 1000,
     margin: 0,
+    nav: true,
     navText: '',
     responsiveClass: true,
     responsive: {
