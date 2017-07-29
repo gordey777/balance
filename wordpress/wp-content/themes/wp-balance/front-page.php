@@ -4,36 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
-
-            <form action="">
-            <h3 class="top-title">Ремонт под ключ от команды мастеров «Баланс» + дизайн-проект <br>
-            в подарок с двойной выгодой: 100% качество и до 60% экономия</h3>
-            <h3 class="white-bg">Вернем 100 000 рублей неустойки, если сорвем сроки хотя бы на один день</h3>
-
-              <div class="white-bg">
-                <h3>Получить на почту варианты ранее разработанных проектов под ваш размер</h3>
-                <div class="col-md-4 col-sm-6 input_wrapp ">
-                  <input type="text" class="text" placeholder="Ваше имя">
-                </div>
-                <div class="col-md-4 col-sm-6 input_wrapp">
-                  <input type="text" class="text" placeholder="Тип дома">
-                </div>
-                <div class="col-md-4 col-sm-6 input_wrapp">
-                  <input type="text" class="text" placeholder="Тип квартиры">
-                </div>
-                <div class="col-md-4 col-sm-6 input_wrapp">
-                  <input type="text" class="text" placeholder="E-mail">
-                </div>
-                <div class="col-md-4 col-sm-6 input_wrapp">
-                  <input type="text" class="text" placeholder="Телефон">
-                </div>
-                <div class="col-md-4 col-sm-6 input_wrapp">
-                  <button class="red-button">Получить вирианты проектов</button>
-                </div>
-                <h3>Посмотрите, что мы делали ранее для квартир вашего типа.</h3>
-              </div>
-            </form>
-
+            <?php echo do_shortcode('[contact-form-7 id="35" title="Контактная форма на главной"]'); ?>
           </div>
         </div><!-- /.row -->
       </div><!-- /.container -->

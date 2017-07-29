@@ -302,6 +302,9 @@ header {
         opacity: 0;
         border-bottom: 2px solid $red;
         background: rgba(#fff, .8);
+        h3 {
+          font-weight: bold;
+        }
       }
       &:hover {
         .slide-cont {
@@ -446,9 +449,24 @@ h1.gray-title {
     }
   }
   form {
-    padding: 20px;
+    .wpcf7-response-output,
+    .wpcf7-validation-errors {
+      font-weight: bold;
 
-    text-align: center;
+      padding: 30px;
+
+      background-color: rgba(#fff, .8);
+    }
+    .white-bg {
+      padding: 20px;
+
+      text-align: center;
+      h3 {
+        width: 100%;
+
+        text-align: center;
+      }
+    }
     .input_wrapp {
       margin-bottom: $small-spacing;
       padding-right: 5px;

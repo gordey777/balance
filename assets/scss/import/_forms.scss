@@ -46,7 +46,8 @@ textarea,
 select[multiple=multiple] {
   font-family: $base-font-family;
   font-size: $base-font-size;
-line-height: 1.1;
+  line-height: 1.1;
+
   box-sizing: border-box;
   width: 100%;
   padding: 14px 20px;
@@ -107,10 +108,12 @@ select {
   position: relative;
 
   display: inline-block;
-color: rgba(#000, .7);
+
   width: 100%;
 
   text-align: left;
+
+  color: rgba(#000, .7);
   i {
     font-size: 30px;
 
