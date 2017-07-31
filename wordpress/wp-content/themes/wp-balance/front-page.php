@@ -1,6 +1,6 @@
 <?php /* Template Name: Home Page */ get_header(); ?>
 
-    <section class="section-1" role="main" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>);">
+    <section class="section-1 section__bg" role="main" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>);">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
@@ -31,7 +31,7 @@
                       <div class="row">
                         <?php if ( !empty($image)) : ?>
                         <div class="col-sm-12 col-xs-4">
-                            <img src="<?php echo $image['url'] ?>">
+                            <img src="<?php echo $image['url']; ?>">
                           </div>
                         <?php endif; ?>
                         <div class="col-sm-12 col-xs-8">
@@ -105,7 +105,6 @@
     <?php endif; ?>
 
 
-
     <section class="cont-form" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/form-bg1.jpg');">
       <div class="container">
         <div class="row">
@@ -126,164 +125,100 @@
       </div><!-- /.container -->
     </section><!-- /section -->
 
-    <section class="reviews two-bloks">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h2 class="section-title">Нам доверяют</h2>
-            <span class="red-subtitle">звезды шоу-бизнеса</span>
-            <div class="clearfix"></div>
-            <div class="col-sm-2 col-xs-4">
+    <?php if( have_rows('reviews_block' ) ): ?>
+      <?php while ( have_rows('reviews_block' ) ) : the_row(); ?>
+        <?php $image = get_sub_field('img'); ?>
+        <section class="reviews two-bloks">
+          <div class="container">
+            <div class="row flex-row">
+              <div class="col-md-6">
+                <h2 class="section-title"><?php the_sub_field('title'); ?></h2>
+                <span class="red-subtitle"><?php the_sub_field('subtitle'); ?></span>
+                <div class="clearfix"></div>
+                <div class="col-sm-2 col-xs-4">
+                  <div class="row">
+                    <div class="photo-wrapp" style="background-image: url(<?php echo $image['url']; ?>);"></div>
+                  </div>
+                </div>
+                <div class="col-sm-10 col-xs-8 content">
+                  <?php the_sub_field('content'); ?>
+                  <p class="name"><?php the_sub_field('name'); ?></p>
+                </div>
+              </div>
+              <div class="col-md-6 video_wrapp">
+                <?php echo get_sub_field('video')["iframe"]; ?>
+              </div>
+            </div><!-- /.row -->
+          </div><!-- /.container -->
+        </section><!-- /section -->
+      <?php endwhile; ?>
+    <?php endif; ?>
+
+
+    <?php if( have_rows('photo_report' ) ): ?>
+      <?php while ( have_rows('photo_report' ) ) : the_row(); ?>
+        <section class="tabs_slider_section">
+          <div class="red-line">
+            <div class="container">
               <div class="row">
-                <div class="photo-wrapp" style="background-image: url(<?php echo get_template_directory_uri(); ?>/img/review-photo.jpg);"></div>
-              </div>
-            </div>
-            <div class="col-sm-10 col-xs-8 content">
-              <p>Осталась очень довольна работой ремонт-бригады Владислава. Очень приятные люди, мастера своего дела. Вся работа по ремонту моей квартиры сделана качественно и на совесть: отличная работа по установке гипсокартонных потолков и арок, кладке паркетной доски и плитки, поклейки обоев и всего остального Осталась очень довольна работой ремонт-бригады Владислава. Очень приятные люди, мастера своего дела. Вся работа по ремонту моей квартиры сделана качественно и на совесть: отличная работа по установке гипсокартонных потолков и арок, кладке паркетной доски и плитки, поклейки обоев и всего остального</p>
-              <p class="name">Алла Довлатова</p>
+                <h2><?php the_sub_field('title'); ?></h2>
+                <?php the_sub_field('subtitle'); ?></div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="row">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/video-holder.jpg" alt="">
-            </div>
-          </div>
-        </div><!-- /.row -->
-      </div><!-- /.container -->
-    </section><!-- /section -->
-
-    <section class="tabs_slider_section">
-      <div class="red-line">
-        <div class="container">
-          <div class="row">
-            <h2>Фотоотчет перед клиентом на каждом этапе работы</h2>
-            <p>Нам нечего скрывать — мы работаем ответственно и честно, и поэтому в любой момент готовы предоставить клиенту подробный отчет о проделанном. А каждую неделю по собственной инициативе подготавливаем специальный фотоотчет о ходе и результатах работ.</p>
-            </p>Или вы можете установить приложение и отслеживать ход работ Online с вашего телефона.</p>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="tabs">
-            <div class="tabs__caption">
-              <div class="tab__label active col-xs-4"><div class="label">1-комнатная квартира</div></div>
-              <div class="tab__label col-xs-4"><div class="label">Коттедж</div></div>
-              <div class="tab__label col-xs-4"><div class="label">Офисное помещение</div></div>
-            </div>
-
-            <div class="tabs__content active">
-              <div class="col-md-8 tab-slider">
-
-                  <div class="two-slides owl-carousel owl-theme slides-content">
-                    <div class="ithem">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
-                      <div class="slide-cont_wrapp">
-                        <div class="slide-cont">
-                          <h3 class="title">День 1</h3>
-                          <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
-                        </div>
+          <?php if( get_sub_field('tabs' ) ): ?>
+            <div class="container">
+                <div class="tabs">
+                  <div class="tabs__caption row">
+                    <?php $i = 0; ?>
+                    <?php while ( has_sub_field('tabs' ) ) : ?>
+                      <?php $tab_class = ''; ?>
+                      <?php if ($i == 0){
+                      $tab_class = 'active';
+                      } ?>
+                      <div class="tab__label <?php echo $tab_class; ?> col-xs-4">
+                        <div class="label"><?php the_sub_field('tab_label'); ?></div>
                       </div>
-                    </div>
-                    <div class="ithem">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
-                      <div class="slide-cont_wrapp">
-                        <div class="slide-cont">
-                          <h3 class="title">День 2</h3>
-                          <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="ithem">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
-                      <div class="slide-cont_wrapp">
-                        <div class="slide-cont">
-                          <h3 class="title">День 3</h3>
-                          <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
-                        </div>
-                      </div>
-                    </div>
+                      <?php $i ++; ?>
+                    <?php endwhile; ?>
                   </div>
-              </div>
-              <div class="col-md-4 video">
-                  <img src="<?php echo get_template_directory_uri(); ?>/img/video-holder-tab.jpg" alt="">
-              </div>
-            </div>
-            <div class="tabs__content">
-              <div class="col-md-8 tab-slider">
-                  <div class="two-slides owl-carousel owl-theme slides-content">
-                    <div class="ithem">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
-                      <div class="slide-cont_wrapp">
-                        <div class="slide-cont">
-                          <h3 class="title">День 1</h3>
-                          <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
+                  <?php $j = 0; ?>
+                  <?php while ( has_sub_field('tabs' ) ) : ?>
+                    <?php $tab_class = ''; ?>
+                    <?php if ($j == 0){
+                      $tab_class = 'active';
+                      } ?>
+                    <div class="tabs__content row flex-row <?php echo $tab_class; ?>">
+                      <?php if( get_sub_field('sub_slider' ) ): ?>
+                        <div class="col-md-8 tab-slider">
+                          <div class="two-slides owl-carousel owl-theme slides-content">
+                              <?php while ( has_sub_field('sub_slider' ) ) : ?>
+                                <?php $image = get_sub_field('img'); ?>
+                                <div class="ithem">
+                                <?php if ( !empty($image)) : ?>
+                                  <img src="<?php echo $image['sizes']['medium']; ?>">
+                                <?php endif; ?>
+                                <div class="slide-cont_wrapp">
+                                  <div class="slide-cont">
+                                    <?php the_sub_field('slide_content'); ?>
+                                  </div>
+                                </div>
+                                </div><!-- /.ithem-->
+                              <?php endwhile; ?>
+                          </div>
                         </div>
+                      <?php endif; ?>
+                      <div class="col-md-4 video_wrapp">
+                          <?php echo get_sub_field('video')["iframe"]; ?>
                       </div>
-                    </div>
-                    <div class="ithem">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
-                      <div class="slide-cont_wrapp">
-                        <div class="slide-cont">
-                          <h3 class="title">День 2</h3>
-                          <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="ithem">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
-                      <div class="slide-cont_wrapp">
-                        <div class="slide-cont">
-                          <h3 class="title">День 3</h3>
-                          <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-              <div class="col-md-4 video">
-                  <img src="<?php echo get_template_directory_uri(); ?>/img/video-holder-tab.jpg" alt="">
-              </div>
-            </div>
-            <div class="tabs__content">
-              <div class="col-md-8 tab-slider">
-                  <div class="two-slides owl-carousel owl-theme slides-content">
-                    <div class="ithem">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
-                      <div class="slide-cont_wrapp">
-                        <div class="slide-cont">
-                          <h3 class="title">День 1</h3>
-                          <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="ithem">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
-                      <div class="slide-cont_wrapp">
-                        <div class="slide-cont">
-                          <h3 class="title">День 2</h3>
-                          <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="ithem">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/tab-slide.jpg" alt="">
-                      <div class="slide-cont_wrapp">
-                        <div class="slide-cont">
-                          <h3 class="title">День 3</h3>
-                          <p>Краткое описание Краткое описание Краткое описание Краткое описание</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-              <div class="col-md-4 video">
-                  <img src="<?php echo get_template_directory_uri(); ?>/img/video-holder-tab.jpg" alt="">
-              </div>
-            </div>
-          </div><!-- /.tabs-->
-        </div><!-- /.row -->
-      </div><!-- /.container -->
-    </section><!-- /section -->
+                    </div><!-- /.tabs__content-->
+                    <?php $j ++; ?>
+                  <?php endwhile; ?>
+              </div><!-- /.tabs-->
+            </div><!-- /.container -->
+          <?php endif; ?>
+        </section><!-- /section -->
+      <?php endwhile; ?>
+    <?php endif; ?>
 
     <section class="cont-form" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/form-bg2.jpg');">
       <div class="container">
@@ -307,85 +242,86 @@
       </div><!-- /.container -->
     </section><!-- /section -->
 
-    <section class="purity  two-bloks">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
+
+    <?php if( have_rows('purity' ) ): ?>
+      <?php while ( have_rows('purity' ) ) : the_row(); ?>
+        <?php $image = get_sub_field('img'); ?>
+        <section class="purity two-bloks">
+          <div class="container">
             <div class="row">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/piurity.jpg" alt="">
-            </div>
-          </div>
-          <div class="col-md-6">
-            <h2 class="section-title">Чистота</h2>
-            <span class="red-subtitle">После себя оставляем идеальную чистоту</span>
-            <p>В отличие от подавляющего большинства конкурентов, мы завершаем ремонт тщательной генеральной уборкой объекта, а также вывозом скопившегося строительного мусора. После окончания нашей работы клиент может сразу же использовать помещение по назначению, ведь в нем будет идеальная чистота.</p>
-          </div>
-        </div><!-- /.row -->
-      </div><!-- /.container -->
-    </section><!-- /section -->
+              <?php if ( !empty($image)) : ?>
+                <div class="col-md-6">
+                  <div class="row">
+                    <img src="<?php echo $image['url']; ?>">
+                  </div>
+                </div>
+              <?php endif; ?>
+              <div class="col-md-6">
+                <h2 class="section-title"><?php the_sub_field('title'); ?></h2>
+                <span class="red-subtitle"><?php the_sub_field('subtitle'); ?></span>
+                <?php the_sub_field('content'); ?>
+              </div>
+            </div><!-- /.row -->
+          </div><!-- /.container -->
+        </section><!-- /section -->
+      <?php endwhile; ?>
+    <?php endif; ?>
 
-
-    <section class="brand-slider-section">
-      <div class="red-line">
-        <div class="container">
-          <div class="row">
-            <h2>Готовы к серьезной проверке!</h2>
-            <p>Гарантируя отличное качество выполненных работ и поставляемых материалов, мы полностью готовы к проверке независимыми экспертами. Более того, мы оплатим эту проверку из собственных средств!</p>
-            <p>Выбирайте из этого списка или предложите свою экспертную компанию, которая будет осуществлять технический надзор.</p>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-        <div class="col-md-10 col-md-offset-1 brands_wrapp">
-            <div class="four-slides owl-carousel owl-theme">
-              <div class="ithem">
-                <a href="#">
-                  <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="">
-                </a>
-              </div>
-              <div class="ithem">
-                <a href="#">
-                  <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="">
-                </a>
-              </div>
-              <div class="ithem">
-                <a href="#">
-                  <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="">
-                </a>
-              </div>
-              <div class="ithem">
-                <a href="#">
-                  <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="">
-                </a>
-              </div>
-              <div class="ithem">
-                <a href="#">
-                  <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="">
-                </a>
-              </div>
-              <div class="ithem">
-                <a href="#">
-                  <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="">
-                </a>
+    <?php if( have_rows('brands' ) ): ?>
+      <?php while ( have_rows('brands' ) ) : the_row(); ?>
+        <section class="brand-slider-section">
+          <div class="red-line">
+            <div class="container">
+              <div class="row">
+                <h2><?php the_sub_field('title'); ?></h2>
+                <?php the_sub_field('description'); ?>
               </div>
             </div>
           </div>
-        </div><!-- /.row -->
-      </div><!-- /.container -->
-    </section><!-- / --><!-- section -->
+          <?php if( get_sub_field('brand_slider' ) ): ?>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1 brands_wrapp">
+                  <div class="four-slides owl-carousel owl-theme">
+                    <?php while ( has_sub_field('brand_slider' ) ) : ?>
+                      <?php $image = get_sub_field('img'); ?>
+                      <div class="ithem">
+                        <?php if ( !empty(get_sub_field('link'))) : ?>
+                          <a href="<?php the_sub_field('link'); ?>" title="<?php the_sub_field('slide_title'); ?>">
+                        <?php endif; ?>
+                            <img src="<?php echo $image['url']; ?>" alt="<?php the_sub_field('slide_title'); ?>">
+                        <?php if ( !empty(get_sub_field('link'))) : ?>
+                         </a>
+                        <?php endif; ?>
+                      </div>
+                    <?php endwhile; ?>
+                  </div>
+                </div>
+              </div><!-- /.row -->
+            </div><!-- /.container -->
+          <?php endif; ?>
+        </section><!-- / --><!-- section -->
+      <?php  endwhile; ?>
+    <?php endif; ?>
 
-    <section class="project-archiv" style="background-image: url(<?php echo get_template_directory_uri(); ?>/img/project-bg.jpg);">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 content">
-            <h2><span class="red">458</span> завершенных проектов на любой вкус</h2>
-
-            <a href="#" class="red-button button">Скачать каталог работ с подробными сметами</a>
-          </div>
-        </div><!-- /.row -->
-      </div><!-- /.container -->
-    </section><!-- /section -->
+    <?php if( have_rows('our_projects') ): ?>
+      <?php while ( have_rows('our_projects') ) : the_row(); ?>
+        <?php $file = get_sub_field('file'); ?>
+        <?php $image = get_sub_field('img'); ?>
+        <section class="project-archiv" style="background-image: url(<?php echo $image['url']; ?>);">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 content">
+                <h2><?php the_sub_field('title'); ?></h2>
+                <?php if ( !empty($file)) : ?>
+                  <a href="<?php echo $file['url']; ?>" download="<?php echo $file['url']; ?>" class="red-button button">Скачать каталог работ с подробными сметами</a>
+                <?php endif; ?>
+              </div>
+            </div><!-- /.row -->
+          </div><!-- /.container -->
+        </section><!-- /section -->
+      <?php  endwhile; ?>
+    <?php endif; ?>
 
     <section class="news-section">
       <div class="container">
@@ -393,36 +329,24 @@
           <div class="col-md-12">
             <h2 class="section-title">Новости</h2>
           </div>
-          <div class="col-md-4 looper">
-            <div class="feature-img">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/news-loop.jpg" alt="">
-            </div>
-            <span class="date">19.02.2015</span>
-            <h2 class="inner-title">Дизайн-проект</h2>
-            <p>Для каждого вверенного нам объекта наши специалисты разрабатывают уникальный</p>
-            <a href="#" class="post-link">Подробнее</a>
-          </div>
-          <div class="col-md-4 looper">
-            <div class="feature-img">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/news-loop.jpg" alt="">
-            </div>
-            <span class="date">19/02/2015</span>
-            <h2 class="inner-title">Дизайн-проект</h2>
-            <p>Для каждого вверенного нам объекта наши специалисты разрабатывают уникальный</p>
-            <a href="#" class="post-link">Подробнее</a>
-          </div>
-          <div class="col-md-4 looper">
-            <div class="feature-img">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/news-loop.jpg" alt="">
-            </div>
-            <span class="date">19.02.2015</span>
-            <h2 class="inner-title">Дизайн-проект</h2>
-            <p>Для каждого вверенного нам объекта наши специалисты разрабатывают уникальный</p>
-            <a href="#" class="post-link">Подробнее</a>
-          </div>
-          <div class="clearfix"></div>
+        </div><!-- /.row -->
+        <div class="row flex-row">
+          <?php
+          $category_id = 9; //ID Рубрики
+          $args = array(
+                  'cat' => '$category_id',
+                  'post_type' => 'post',
+                  'posts_per_page' => 3, //Количество постов в блоке ПОЛЕЗНЫЕ СТАТЬИ
+                  //'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1),
+                  );
+          query_posts($args); ?>
+          <?php get_template_part('loop'); ?>
+
+          <?php wp_reset_query(); ?>
+        </div><!-- /.row -->
+        <div class="row">
           <div class="col-md-2 col-md-offset-5">
-            <a href="#" class="red-button button">Все новости</a>
+            <a href="<?php echo get_category_link( $category_id ); ?>" class="red-button button">Все новости</a>
           </div>
         </div><!-- /.row -->
       </div><!-- /.container -->
@@ -447,7 +371,7 @@
         </div><!-- /.row -->
       </div><!-- /.container -->
     </section><!-- /section -->
-    <?php //get_template_part('loop'); ?>
+
     <?php //get_template_part('pagination'); ?>
 
 <?php get_footer(); ?>

@@ -2,14 +2,26 @@
 
   <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-    <section class="section-1" role="main" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>);">
+    <section class="section-1 section__bg" role="main" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>);">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
-            <h1 class="gray-title"><?php the_title(); ?></h1><?php edit_post_link(); ?>
+            <h1 class="gray-title">
+              <?php if ( !empty(get_field('title'))) : ?>
+                <?php the_field('title');?>
+              <?php else: ?>
+                <?php the_title(); ?>
+              <?php endif; ?>
+            </h1>
+            <?php if ( !empty(get_field('subtitle'))) : ?>
+              <h2 class="gray-title">
+                <?php the_field('subtitle');?>
+              </h2>
+            <?php endif; ?>
+            <?php edit_post_link(); ?>
           </div>
           <div class="col-sm-4 col-sm-offset-4">
-            <a href="<?php the_field('link'); ?>" class="button red-button">Получить бесплатную консультацию</a>
+            <a href="<?php the_field('title_link'); ?>" class="button red-button">Получить бесплатную консультацию</a>
           </div>
         </div><!-- /.row -->
       </div><!-- /.container -->

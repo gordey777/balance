@@ -31,7 +31,11 @@
 
           <div class="left-bg col-md-9 col-sm-8">
             <div class="row">
-              <div class="logo col-md-2 col-xs-5">
+              <div id="hamburger" class="visible-xs humb-toggle-switch humb-toggle-switch__htx">
+                <span>toggle menu</span>
+              </div>
+
+              <div class="logo col-md-2 col-xs-12">
                 <?php if ( !is_front_page() && !is_home() ){ ?>
                   <a href="<?php echo home_url(); ?>">
                 <?php } ?>
@@ -41,35 +45,29 @@
                 <?php } ?>
               </div><!-- /logo -->
 
-              <div class="catalog_load col-md-4 col-xs-7 col-md-push-6">
-                <a href="#" class="catalog">Скачать каталог работ <br>с подробными сметами</a>
+              <?php $file = get_field('header_file', 43); ?>
+              <div class="catalog_load col-md-4 hidden-xs col-md-push-6">
+                <a href="<?php echo $file['url']; ?>" download="<?php echo $file['url']; ?>" class="catalog">Скачать каталог работ <br>с подробными сметами</a>
               </div>
 
-              <div class="slogan col-md-6 col-sm-12 col-md-pull-4">
-                <span>Качественное преобразование вашего интерьера <br>на профессиональном <br>уровне</span>
+              <div class="slogan col-md-6 col-sm-12 hidden-xs col-md-pull-4">
+                <span><?php the_field('site_slogan', 43); ?></span>
               </div>
 
 
             </div>
           </div>
 
-          <div class="phone right-bg col-md-3 col-sm-4">
-            <a href="tel:+ 7 (000) 00-000-00" class="tel">+ 7 (000) 00-000-00</a>
+          <div class="phone right-bg col-md-3 col-sm-4 col-xs-12">
+            <a href="tel:<?php the_field('phone', 43); ?>" class="tel"><?php the_field('phone', 43); ?></a>
             <a href="#" class="callback button red-button">Заказвть звонок</a>
           </div>
 
-
+          <nav class="col-md-12 nav nav__header" role="navigation">
+            <?php wpeHeadNav(); ?>
+          </nav><!-- /nav -->
 
         </div><!-- /.row -->
       </div><!-- /.container -->
-      <nav class="nav__header" role="navigation">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <?php wpeHeadNav(); ?>
-            </div>
 
-          </div><!-- /.row -->
-        </div><!-- /.container -->
-      </nav><!-- /nav -->
     </header><!-- /header -->

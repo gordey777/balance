@@ -9,7 +9,7 @@
     </a><!-- /post thumbnail -->
     <span class="date"><?php the_time('j F Y'); ?></span>
     <h2 class="inner-title"><?php the_title(); ?></h2>
-    <?php wpeExcerpt('wpeExcerpt20'); ?>
+    <?php wpeExcerpt('wpeExcerpt10'); ?>
     <a href="<?php the_permalink(); ?>" class="post-link">Подробнее</a>
   </div><!-- /looper -->
 <?php endwhile; endif; ?>
