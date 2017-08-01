@@ -75,7 +75,7 @@
         </div>
         <div class="modal-body">
           <div class="col-xs-12">
-            <?php echo do_shortcode('[contact-form-7 id="218" title="Регистрация"]'); ?>
+            <?php echo do_shortcode('[contact-form-7 id="246" title="Modal Callback"]'); ?>
           </div>
         </div>
       </div>

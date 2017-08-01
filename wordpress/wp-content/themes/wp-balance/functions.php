@@ -680,4 +680,15 @@ function disable_emojicons_tinymce( $plugins ) {
   }
 }
 
+
+
+function my_acf_google_map_api( $api ){
+
+  $api['key'] = 'AIzaSyAdnmkZwY2UhB0tliLwtFIZg8NS_k0t6g8';
+
+  return $api;
+
+}
+
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 ?>

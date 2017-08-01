@@ -145,6 +145,9 @@ $modal-footer-border-color: $modal-header-border-color !default;
   position: relative;
 
   padding: $modal-inner-padding;
+  .input_wrapp {
+    margin-bottom: 10px;
+  }
 }
 
 
