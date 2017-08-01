@@ -5,10 +5,12 @@
             <div class="col-md-12">
               <h2 class="section-title">Наши клиенты</h2>
             </div>
+          </div><!-- /.row -->
+          <div class="row row-flax">
             <?php while ( have_rows('our_сustomers', 43) ) : the_row(); ?>
               <?php the_sub_field('subtitle'); ?>
               <?php $image = get_sub_field('img'); ?>
-              <div class="col-md-4 looper">
+              <div class="col-sm-4 looper">
                 <div class="feature-img">
                   <?php if ( !empty($image)) : ?>
                     <img src="<?php echo $image['sizes']['medium']; ?>" alt="">
@@ -18,7 +20,8 @@
                 <p><?php the_sub_field('desc'); ?></p>
               </div>
             <?php endwhile; ?>
-            <div class="clearfix"></div>
+          </div><!-- /.row -->
+          <div class="row">
             <div class="col-md-2 col-md-offset-5">
               <a href="<?php the_field('сustomers_link', 43); ?>" class="red-button button">Все клиенты</a>
             </div>
@@ -62,8 +65,26 @@
   </footer><!-- /footer -->
 
 
+  <!-- / MODAL VINDOW-->
+  <div id="modal_callback" class="modal__form modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content clearfix">
+        <div class="modal-header">
+          <div data-dismiss="modal" aria-label="Close" class="close"><i class="fa fa-times"></i></div>
+          <h4 class="col-md-12 modal-title">Укажите ваш актуальный <br>телефон, и мы свяжемся с вами <br>в течение 15 минут</h4>
+        </div>
+        <div class="modal-body">
+          <div class="col-xs-12">
+            <?php echo do_shortcode('[contact-form-7 id="218" title="Регистрация"]'); ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <?php wp_footer(); ?>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.min.js"></script>
 </body>
 </html>
 

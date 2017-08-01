@@ -100,8 +100,7 @@ jQuery(document).ready(function() {
   });
 
   $('.footer_menu .menu-item-has-children').click(function() {
-
-    //$('.footer_menu .menu-item-has-children').removeClass('open');
+    $(this).siblings('li').removeClass('open');
     $(this).toggleClass('open');
 
   });

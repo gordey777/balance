@@ -108,19 +108,7 @@
     <section class="cont-form" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/form-bg1.jpg');">
       <div class="container">
         <div class="row">
-          <h2>Хотите знать больше о наших услугах и своих возможностях?</h2>
-          <p>Воспользуйтесь бесплатной консультацией по телефону или в режиме онлайн</p>
-          <form action="">
-            <div class="col-md-4 input_wrapp ">
-              <input type="text" class="text" placeholder="Ваше имя">
-            </div>
-            <div class="col-md-4 input_wrapp">
-              <input type="text" class="text" placeholder="Телефон">
-            </div>
-            <div class="col-md-4 input_wrapp">
-              <button class="red-button">Оставить заявку</button>
-            </div>
-          </form>
+          <?php echo do_shortcode('[contact-form-7 id="242" title="Хотите знать больше о наших услугах"]'); ?>
         </div><!-- /.row -->
       </div><!-- /.container -->
     </section><!-- /section -->
@@ -223,21 +211,7 @@
     <section class="cont-form" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/form-bg2.jpg');">
       <div class="container">
         <div class="row">
-          <h2>Изучим смету конкурентов и предостережем от ошибок</h2>
-          <p>Если у вас уже имеется смета ремонта от другой компании, мы можем проверить ее на наличие подводных камней, слабых мест и попыток обмана. Но даже если в смете все чисто и правильно, предложим вам более выгодные условия и лучшие цены!</p>
-          <form action="">
-            <div class="col-md-4 input_wrapp ">
-              <input type="text" class="text" placeholder="Телефон">
-            </div>
-            <div class="col-md-4 input_wrapp">
-            <label for="file" class="file_label">
-              <span class="file_input">Загрузить<i class="fa fa-angle-down"></i></span>
-              <input id="file" type="file" class="file"></label>
-            </div>
-            <div class="col-md-4 input_wrapp">
-              <button class="red-button">Оставить заявку</button>
-            </div>
-          </form>
+          <?php echo do_shortcode('[contact-form-7 id="243" title="Изучим смету конкурентов"]'); ?>
         </div><!-- /.row -->
       </div><!-- /.container -->
     </section><!-- /section -->
@@ -330,7 +304,7 @@
             <h2 class="section-title">Новости</h2>
           </div>
         </div><!-- /.row -->
-        <div class="row flex-row">
+        <div class="row row-flex">
           <?php
           $category_id = 9; //ID Рубрики
           $args = array(
@@ -355,19 +329,7 @@
     <section class="cont-form" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/form-bg3.jpg');">
       <div class="container">
         <div class="row">
-          <h2>Нужен качественный ремонт класса «Люкс» под ключ?</h2>
-          <p>Оставьте заявку прямо сейчас, и мы бесплатно предложим вам 3 варианта дизайн-концепции на выбор!</p>
-          <form action="">
-            <div class="col-md-4 input_wrapp ">
-              <input type="text" class="text" placeholder="Ваше имя">
-            </div>
-            <div class="col-md-4 input_wrapp">
-              <input type="text" class="text" placeholder="Телефон">
-            </div>
-            <div class="col-md-4 input_wrapp">
-              <button class="red-button">Оставить заявку</button>
-            </div>
-          </form>
+          <?php echo do_shortcode('[contact-form-7 id="244" title="Нужен качественный ремонт"]'); ?>
         </div><!-- /.row -->
       </div><!-- /.container -->
     </section><!-- /section -->

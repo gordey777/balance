@@ -20,8 +20,8 @@
             <?php endif; ?>
             <?php edit_post_link(); ?>
           </div>
-          <div class="col-sm-4 col-sm-offset-4">
-            <a href="<?php the_field('title_link'); ?>" class="button red-button">Получить бесплатную консультацию</a>
+          <div class="col-sm-6 col-sm-offset-3">
+            <a href="#modal_callback" rel="nofollow" data-toggle="modal" class="button red-button">Получить бесплатную консультацию</a>
           </div>
         </div><!-- /.row -->
       </div><!-- /.container -->
@@ -93,7 +93,7 @@
           <h2>Обращайтесь к нам, если для вас важны честные и точные сметы</h2>
           <p>разумная экономия, высокое качество работ и материалов, первоклассный сервис <br>и .уровень ответственности, которую мы несем перед каждым нашим заказчиком. Мы работаем на лучший результат!</p>
           <div class="col-sm-4 col-sm-offset-4">
-            <a href="#" class="button red-button">Получить консультацию</a>
+            <a href="#modal_callback" rel="nofollow" data-toggle="modal" class="button red-button">Получить консультацию</a>
           </div>
         </div><!-- /.row -->
       </div><!-- /.container -->

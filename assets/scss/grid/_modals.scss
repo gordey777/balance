@@ -1,0 +1,187 @@
+//
+// Modals
+// --------------------------------------------------
+
+// .modal-open      - body class for killing the scroll
+// .modal           - container to scroll within
+// .modal-dialog    - positioning shell for the actual modal
+// .modal-content   - actual modal w/ bg and corners and shit
+
+// Kill the scroll on the body
+
+//== Modals
+//
+//##
+$zindex-modal-background: 1040 !default;
+$zindex-modal: 1050 !default;
+//** Padding applied to the modal body
+$modal-inner-padding: 15px !default;
+
+//** Padding applied to the modal title
+$modal-title-padding: 15px !default;
+//** Modal title line-height
+$modal-title-line-height: 1.4;
+
+//** Background color of modal content area
+$modal-content-bg: #fff !default;
+//** Modal content border color
+$modal-content-border-color: rgba(0,0,0,.2) !default;
+//** Modal content border color **for IE8**
+$modal-content-fallback-border-color: #999 !default;
+
+//** Modal backdrop background color
+$modal-backdrop-bg: #000 !default;
+//** Modal backdrop opacity
+$modal-backdrop-opacity: .5 !default;
+//** Modal header border color
+$modal-header-border-color: #e5e5e5 !default;
+//** Modal footer border color
+$modal-footer-border-color: $modal-header-border-color !default;
+
+
+
+
+
+.modal-open {
+  overflow: hidden;
+}
+
+// Container that the modal scrolls within
+.modal {
+  position: fixed;
+  z-index: $zindex-modal;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: none;
+  overflow: hidden;
+
+  outline: 0;
+
+  -webkit-overflow-scrolling: touch;
+  // When fading in the modal, animate it to slide down
+  &.fade .modal-dialog {
+    @include translate(0, -25%);
+    @include transition-transform(.3s ease-out);
+  }
+  &.in .modal-dialog {
+    @include translate(0, 0);
+  }
+}
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+// Shell div to position the modal with bottom padding
+.modal-dialog {
+  position: relative;
+
+  margin: 30px auto;
+}
+
+// Actual modal
+.modal-content {
+  position: relative;
+  //border: 1px solid $modal-content-fallback-border-color; //old browsers fallback (ie8 etc)
+  //border: 1px solid $modal-content-border-color;
+
+  border-radius: 0;
+  // Remove focus outline from opened modal
+  outline: 0;
+  background-color: $modal-content-bg;
+  background-clip: padding-box;
+
+  @include box-shadow(0 3px 9px rgba(0,0,0,.5));
+}
+
+// Modal background
+.modal-backdrop {
+  position: fixed;
+  z-index: $zindex-modal-background;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background-color: $modal-backdrop-bg;
+  // Fade for backdrop
+  &.fade {
+    @include opacity(0);
+  }
+  &.in {
+    @include opacity($modal-backdrop-opacity);
+  }
+}
+
+
+.modal-header {
+  padding: $modal-title-padding;
+
+  @include clearfix;
+}
+// Close icon
+.modal-header .close {
+  font-size: 20px;
+
+  position: absolute;
+  z-index: 1060;
+  top: 10px;
+  right: 10px;
+}
+
+.modal-title {
+  line-height: $modal-title-line-height;
+
+  margin: 0;
+
+  text-align: center;
+}
+
+
+.modal-body {
+  position: relative;
+
+  padding: $modal-inner-padding;
+}
+
+
+.modal-sm {
+  width: 450px;
+}
+.modal-footer {
+  padding: $modal-inner-padding;
+
+  text-align: right;
+
+  border-top: 1px solid $modal-footer-border-color;
+
+  @include clearfix;
+}
+
+
+.modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+
+  overflow: scroll;
+
+  width: 50px;
+  height: 50px;
+}
+
+
+@media (min-width: 992px) {
+  .modal-content {
+    @include box-shadow(0 5px 15px rgba(0,0,0,.5));
+  }
+
+  // Modal sizes
+}
+@media (max-width: 768px) {
+  .modal-sm {
+    width: 300px;
+  }
+}

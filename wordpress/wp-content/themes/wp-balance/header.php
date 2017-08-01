@@ -35,7 +35,7 @@
                 <span>toggle menu</span>
               </div>
 
-              <div class="logo col-md-2 col-xs-12">
+              <div class="logo col-md-2 col-sm-6 col-xs-12">
                 <?php if ( !is_front_page() && !is_home() ){ ?>
                   <a href="<?php echo home_url(); ?>">
                 <?php } ?>
@@ -46,7 +46,7 @@
               </div><!-- /logo -->
 
               <?php $file = get_field('header_file', 43); ?>
-              <div class="catalog_load col-md-4 hidden-xs col-md-push-6">
+              <div class="catalog_load col-md-4 col-sm-6 hidden-xs col-md-push-6">
                 <a href="<?php echo $file['url']; ?>" download="<?php echo $file['url']; ?>" class="catalog">Скачать каталог работ <br>с подробными сметами</a>
               </div>
 
@@ -60,10 +60,10 @@
 
           <div class="phone right-bg col-md-3 col-sm-4 col-xs-12">
             <a href="tel:<?php the_field('phone', 43); ?>" class="tel"><?php the_field('phone', 43); ?></a>
-            <a href="#" class="callback button red-button">Заказвть звонок</a>
+            <a href="#modal_callback" rel="nofollow" data-toggle="modal" class="callback button red-button">Заказвть звонок</a>
           </div>
 
-          <nav class="col-md-12 nav nav__header" role="navigation">
+          <nav class="nav nav__header" role="navigation">
             <?php wpeHeadNav(); ?>
           </nav><!-- /nav -->
 
