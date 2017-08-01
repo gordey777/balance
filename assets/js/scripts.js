@@ -93,8 +93,18 @@ jQuery(document).ready(function() {
     });
   })(jQuery);
 
+
   $('#hamburger').click(function() {
     $('#hamburger').toggleClass('active');
     $('header .nav__header').toggleClass('open');
   });
+
+  $('.footer_menu .menu-item-has-children').click(function() {
+
+    //$('.footer_menu .menu-item-has-children').removeClass('open');
+    $(this).toggleClass('open');
+
+  });
+
+
 });
