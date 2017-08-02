@@ -56,6 +56,20 @@ jQuery(document).ready(function() {
       }
     },
   });
+  jQuery('.one-slide.owl-carousel').owlCarousel({
+    lazyLoad: true,
+    slideSpeed: 5000,
+    autoplay: true,
+    autoplayHoverPause: true,
+    loop: true,
+    dots: false,
+    smartSpeed: 1000,
+    margin: 0,
+    nav: true,
+    navText: '',
+    items: 1,
+
+  });
   jQuery('.four-slides.owl-carousel').owlCarousel({
     lazyLoad: true,
     slideSpeed: 5000,

@@ -21,10 +21,15 @@
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<!-- wrapper -->
+<?php
+$header_class = '';
+if( is_page_template( 'page-landing1.php' ) ){
+$header_class = 'landing_header';
+} ?>
 
+<!-- wrapper -->
   <div class="wrapper">
-    <header role="banner">
+    <header role="banner"  class=" <?php echo $header_class; ?>">
 
       <div class="container">
         <div class="row">

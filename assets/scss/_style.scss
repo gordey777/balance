@@ -158,6 +158,15 @@ header {
       text-align: center;
     }
   }
+  &.landing_header {
+    background: rgba(#fff, .7);
+    .left-bg::before,
+    .right-bg::after,
+    .hamburger,
+    .nav__header {
+      display: none!important;
+    }
+  }
 }
 
 
@@ -589,7 +598,7 @@ h1.gray-title {
     display: none;
 
     width: 88px;
-    height: 1px;
+    height: 2px;
 
     content: '';
 
@@ -1181,7 +1190,7 @@ footer {
       background-image: url('../img/cont-envelope.png');
     }
   }
-  .contacts__items{
+  .contacts__items {
     margin-bottom: 30px;
   }
   .contacts__form {
@@ -1327,6 +1336,58 @@ footer {
     }
   }
 }
+
+.title-icons {
+  position: absolute;
+  top: 110%;
+  right: 15px;
+  left: 15px;
+
+  display: -webkit-flex;
+  display:    -moz-flex;
+  display:     -ms-flex;
+  display:      -o-flex;
+  display:         flex;
+
+  margin: 0;
+  padding: 10px 0;
+
+  justify-content: space-around;
+  flax-flow: row wrap;
+  .title_icon {
+    //min-width: 145px;
+    max-width: 155px;
+
+    text-align: center;
+    .icon_wrapp {
+      line-height: 82px;
+
+      display: inline-block;
+
+      width: 82px;
+      height: 82px;
+
+      text-align: center;
+      vertical-align: middle;
+
+      border: 1px solid #000;
+      border-radius: 50%;
+      img {
+        display: inline-block;
+
+        margin: auto;
+      }
+    }
+    p {
+      display: block;
+
+      width: 100%;
+      margin-bottom: 0;
+    }
+  }
+}
+
+
 
 @media (max-width: 768px) {
   header {
