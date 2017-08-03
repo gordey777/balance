@@ -4,9 +4,11 @@
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
+          <h1 class="top-title"><?php the_field('top_title'); ?></h1>
             <?php echo do_shortcode('[contact-form-7 id="35" title="Контактная форма на главной"]'); ?>
 
             <?php if( have_rows('title_icons' ) ): ?>
+
               <div class="title-icons white-bg">
                 <?php while ( have_rows('title_icons' ) ) : the_row(); ?>
                   <?php $image = get_sub_field('icon'); ?>
@@ -20,6 +22,7 @@
                   </div>
                 <?php endwhile; ?>
               </div>
+
             <?php endif; ?>
 
           </div>
@@ -30,11 +33,14 @@
     <?php if( have_rows('atention' ) ): ?>
       <?php while ( have_rows('atention' ) ) : the_row(); ?>
         <?php $image = get_sub_field('img'); ?>
-        <section class="purity two-bloks">
+        <section class="purity atention two-bloks">
           <div class="container">
             <div class="row">
-              <h2 class="section-title"><?php the_sub_field('title'); ?></h2>
-              <span class="red-subtitle"><?php the_sub_field('subtitle'); ?></span>
+              <div class="col-md-12 title_wrapp">
+                <h2 class="section-title"><?php the_sub_field('title'); ?></h2>
+                <span class="red-subtitle"><?php the_sub_field('subtitle'); ?></span>
+              </div>
+
               <?php if ( !empty($image)) : ?>
                 <div class="col-md-6">
                   <div class="row">
@@ -61,9 +67,10 @@
             </div>
           </div>
           <div class="container">
-            <div class="row">
+
 
               <?php if( get_sub_field('sub_slider' ) ): ?>
+            <div class="row slides_block">
                 <div class="two-slides owl-carousel owl-theme">
                   <?php while ( has_sub_field('sub_slider' ) ) : ?>
                     <?php $image = get_sub_field('img'); ?>
@@ -78,32 +85,40 @@
                 </div><!-- /.two-slides -->
               <?php endif; ?>
               <div class="clearfx"></div>
-              <div class="col-md-4 col-md-offset-4 col-md-6 col-md-offset-3">
+              <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
                 <span class="button red-button">Забудьте об этом</span>
               </div>
-              <?php if( have_rows('results' ) ): ?>
-                <?php while ( have_rows('results' ) ) : the_row(); ?>
+            </div><!-- /.row -->
+            <?php if( have_rows('results' ) ): ?>
+              <?php while ( have_rows('results' ) ) : the_row(); ?>
+                <div class="row">
                   <h2 class="section-title"><?php the_sub_field('title'); ?></h2>
+                </div><!-- /.row -->
+                <div class="row flex-row results_block">
                   <?php if( get_sub_field('images' ) ): ?>
                     <?php while ( has_sub_field('images' ) ) : ?>
                       <?php $image = get_sub_field('img'); ?>
                       <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="row">
-                          <?php if ( !empty($image)) : ?>
-                            <img src="<?php echo $image['sizes']['medium']; ?>">
-                          <?php endif; ?>
-                          <span class="button red-button results_link">Посетить объект</span>
+                          <div class="img_wrapp">
+                            <?php if ( !empty($image)) : ?>
+                              <img src="<?php echo $image['sizes']['medium']; ?>">
+                            <?php endif; ?>
+                            <a href="#" class="button red-button results_link">Посетить объект</a>
+                          </div>
                         </div>
                       </div>
                     <?php endwhile; ?>
                   <?php endif; ?>
-                  <div class="clearfix"></div>
-                  <div class="col-md-3 col-md-offset-5 col-md-6 col-md-offset-3">
-                    <span class="button red-button">Смотреть еще</span>
+                </div><!-- /.row -->
+                <div class="row">
+                  <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+                    <a href="#" class="button red-button">Смотреть еще</a>
                   </div>
-                <?php endwhile; ?>
-              <?php endif; ?>
-            </div><!-- /.row -->
+                </div><!-- /.row -->
+              <?php endwhile; ?>
+            <?php endif; ?>
+
           </div><!-- /.container -->
         </section><!-- /section -->
       <?php endwhile; ?>
@@ -118,51 +133,69 @@
           </div>
         </div>
         <div class="container">
-          <div class="row flex-row">
+          <div class="row">
             <?php $i = 1; ?>
             <?php while ( have_rows('zigzag' ) ) : the_row(); ?>
               <?php if (($i % 2) != 0){ ?>
-                <div class="col-sm-6">
-                <div class="row">
-                  <div class="label-icon"><?php echo $i; ?></div>
-                  <div class="title"><?php the_sub_field('subtitle'); ?></div>
-                  <p><?php the_sub_field('content'); ?></p>
-                  <span class="time"><b>Срок : </b> <?php the_sub_field('time'); ?>.</span>
-                  <?php $file = get_sub_field('file'); ?>
-                  <?php if($file) { ?>
+                <div class="col-md-12">
+                  <div class="row flex-row zigzag-block">
 
-                    <div class="file">
-                      <a href="<?php echo $file['url']; ?>" download="<?php echo $file['url']; ?>" class="red-button button">Скачать чек­лист</a>
+                    <div class="col-sm-6 content_left">
+
+                        <div class="label-icon"><?php echo $i; ?></div>
+                        <div class="title_wrapp">
+                          <h3 class="section-title"><?php the_sub_field('subtitle'); ?></h3>
+                        </div>
+                        <p><?php the_sub_field('content'); ?></p>
+                        <span class="time"><b>Срок : </b> <?php the_sub_field('time'); ?>.</span>
+                        <?php $file = get_sub_field('file'); ?>
+                        <?php if($file) { ?>
+
+                          <div class="file">
+                            <a href="<?php echo $file['url']; ?>" download="<?php echo $file['url']; ?>" class="red-button button">Скачать чек­лист</a>
+                          </div>
+                        <?php }  ?>
+
                     </div>
-                  <?php }  ?>
-                </div>
-                </div>
-                <div class="col-sm-6 video_wrapp">
-                <div class="row">
-                  <?php echo get_sub_field('video')["iframe"]; ?>
-                </div>
+
+                    <div class="col-sm-6 video_wrapp">
+
+                        <?php echo get_sub_field('video')["iframe"]; ?>
+
+                    </div>
+
+                  </div>
                 </div>
               <?php } else { ?>
-                <div class="col-md-6 video_wrapp">
-                <div class="row">
-                  <?php echo get_sub_field('video')["iframe"]; ?>
-                </div>
-                </div>
-                <div class="col-sm-6">
-                <div class="row">
-                  <div class="label"><?php echo $i; ?></div>
-                  <div class="title"><?php the_sub_field('subtitle'); ?></div>
-                  <p><?php the_sub_field('content'); ?></p>
-                  <span class="time"><b>Срок : </b> <?php the_sub_field('time'); ?>.</span>
-                  <?php $file = get_sub_field('file'); ?>
-                  <?php if($file) { ?>
-                    <div class="file">
-                      <a href="<?php echo $file['url']; ?>" download="<?php echo $file['url']; ?>" class="red-button button">Скачать чек­лист</a>
-                    </div>
-                  <?php }  ?>
-                </div>
-                </div>
+                <div class="col-md-12">
+                  <div class="row flex-row zigzag-block">
 
+                    <div class="col-sm-6 video_wrapp">
+
+                        <?php echo get_sub_field('video')["iframe"]; ?>
+
+                    </div>
+
+                    <div class="col-sm-6 content_right">
+
+                        <div class="label-icon"><?php echo $i; ?></div>
+                        <div class="title_wrapp">
+                          <h3 class="section-title"><?php the_sub_field('subtitle'); ?></h3>
+                        </div>
+                        <p><?php the_sub_field('content'); ?></p>
+                        <span class="time"><b>Срок : </b> <?php the_sub_field('time'); ?>.</span>
+                        <?php $file = get_sub_field('file'); ?>
+                        <?php if($file) { ?>
+
+                          <div class="file">
+                            <a href="<?php echo $file['url']; ?>" download="<?php echo $file['url']; ?>" class="red-button button">Скачать чек­лист</a>
+                          </div>
+                        <?php }  ?>
+
+                    </div>
+
+                  </div>
+                </div>
               <?php }  ?>
               <div class="clearfix"></div>
               <?php $i ++; ?>
@@ -189,12 +222,12 @@
         <section class="statistic-section">
           <div class="container">
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-12 title_wrapp">
                 <h2 class="section-title"><?php the_sub_field('title'); ?></h2>
                 <span class="red-subtitle"><?php the_sub_field('subtitle'); ?></span>
                 <div class="clearfix"></div>
               </div>
-              <div class="col-md-12">
+              <div class="col-md-10 col-md-offset-1 icons_wrapp">
                 <?php if( get_sub_field('icons' ) ): ?>
                   <?php while ( has_sub_field('icons' ) ) : ?>
 
@@ -204,8 +237,9 @@
                     </div>
                   <?php endwhile; ?>
                 <?php endif; ?>
-                <div class="clearfix"></div>
+
               </div>
+
             </div><!-- /.row -->
           </div><!-- /.container -->
         </section><!-- /section -->
@@ -221,19 +255,19 @@
             </div>
           </div>
           <div class="container">
-            <div class="row">
+            <div class="row icons flax-row">
 
               <?php if( get_sub_field('icons' ) ): ?>
 
                   <?php while ( has_sub_field('icons' ) ) : ?>
                     <?php $image = get_sub_field('img'); ?>
-                    <div class="icon-red">
+                    <div class="col-sm-4 col-xs-6 icon">
                       <div class="icon-wrapp">
                         <?php if ( !empty($image)) : ?>
                           <img src="<?php echo $image['sizes']['medium']; ?>">
                         <?php endif; ?>
                       </div>
-                      <h3><?php the_sub_field('title'); ?></h3>
+                      <h3 class="icon-title"><?php the_sub_field('title'); ?></h3>
                     </div>
                   <?php endwhile; ?>
 
@@ -250,21 +284,19 @@
         <section class="clients_rewiews">
           <div class="container">
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-12 title_wrapp">
                 <h2 class="section-title"><?php the_sub_field('title'); ?></h2>
-                <span class="red-subtitle"><?php the_sub_field('subtitle'); ?></span>
               </div>
             </div><!-- /.row -->
             <?php if( get_sub_field('sub_slider' ) ): ?>
-              <div class="row">
+              <div class="row rewiews_wrapp">
                 <?php while ( has_sub_field('sub_slider' ) ) : ?>
-                  <?php $image = get_sub_field('img'); ?>
 
                   <div class="col-sm-6">
                     <div class="video_wrapp">
                       <?php echo get_sub_field('video')["iframe"]; ?>
                     </div>
-                    <div class="contant"><?php the_sub_field('content'); ?></div>
+                    <div class="content"><?php the_sub_field('content'); ?></div>
                     <div class="name"><?php the_sub_field('name'); ?></div>
                   </div>
                 <?php endwhile; ?>
@@ -283,9 +315,9 @@
               <div class="one-slide owl-carousel owl-theme">
                 <?php while ( have_rows('reviews_slider' ) ) : the_row(); ?>
                   <div class="ithem">
-                    <div class="white_bg">
+                    <div class="slide-cont">
                       <div class="name"><?php the_sub_field('name'); ?></div>
-                      <div class="contant"><?php the_sub_field('content'); ?></div>
+                      <div class="content"><?php the_sub_field('content'); ?></div>
                     </div>
                   </div>
                 <?php endwhile; ?>

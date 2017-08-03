@@ -23,7 +23,7 @@
 <body <?php body_class(); ?>>
 <?php
 $header_class = '';
-if( is_page_template( 'page-landing1.php' ) ){
+if( is_page_template( 'page-landing1.php' ) || is_page_template( 'page-landing2.php' ) ){
 $header_class = 'landing_header';
 } ?>
 
