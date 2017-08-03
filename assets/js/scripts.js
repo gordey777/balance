@@ -64,7 +64,7 @@ jQuery(document).ready(function() {
     loop: true,
     dots: false,
     smartSpeed: 1000,
-    margin: 0,
+    margin: 30,
     nav: true,
     navText: '',
     items: 1,
@@ -291,3 +291,4 @@ jQuery(document).ready(function() {
 
 
 });
+

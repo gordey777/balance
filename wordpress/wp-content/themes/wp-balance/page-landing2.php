@@ -30,27 +30,39 @@
       </div><!-- /.container -->
     </section><!-- /section -->
 
-    <?php if( have_rows('atention' ) ): ?>
-      <?php while ( have_rows('atention' ) ) : the_row(); ?>
-        <?php $image = get_sub_field('img'); ?>
-        <section class="purity atention two-bloks">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12 title_wrapp">
-                <h2 class="section-title"><?php the_sub_field('title'); ?></h2>
-                <span class="red-subtitle"><?php the_sub_field('subtitle'); ?></span>
-              </div>
 
-              <?php if ( !empty($image)) : ?>
-                <div class="col-md-6">
-                  <div class="row">
-                    <img src="<?php echo $image['url']; ?>">
-                  </div>
-                </div>
+
+    <?php if( have_rows('statistik' ) ): ?>
+      <?php while ( have_rows('statistik' ) ) : the_row(); ?>
+        <section class="statistik-section">
+          <div class="red-line">
+            <div class="container">
+              <h3><?php the_sub_field('title'); ?></h3>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row row-flex">
+
+              <?php if( get_sub_field('sub_slider' ) ): ?>
+
+                  <?php while ( has_sub_field('sub_slider' ) ) : ?>
+                    <?php $image = get_sub_field('img'); ?>
+                    <div class="col-md-4 col-sm-6 col-xs-6 stat_img">
+                      <div class="img-wrapp">
+                        <?php if ( !empty($image)) : ?>
+                          <img src="<?php echo $image['sizes']['medium']; ?>">
+                        <?php endif; ?>
+                      </div>
+                      <div class="stat_content_wrapp">
+                        <div class="stat_content">
+                          <?php the_sub_field('content'); ?>
+                        </div>
+                      </div>
+                    </div>
+                  <?php endwhile; ?>
+
               <?php endif; ?>
-              <div class="col-md-6">
-                <?php the_sub_field('content'); ?>
-              </div>
+
             </div><!-- /.row -->
           </div><!-- /.container -->
         </section><!-- /section -->
@@ -81,13 +93,13 @@
   <?php $image = get_sub_field('img'); ?>
 
 
-<div class="col-sm-6">
-<div class="row">
+<div class="col-sm-6 quoter_slide">
+
                       <?php if ( !empty($image)) : ?>
                         <img src="<?php echo $image['sizes']['medium']; ?>">
                       <?php endif; ?>
 <div class="red-button"><?php the_sub_field('titlte'); ?></div>
-</div>
+
 </div>
 <?php if ( $k == 2) : ?>
   <div class="clearfix"></div>
@@ -111,6 +123,14 @@
     <?php endif; ?>
 
 
+    <section class="cont-form" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/lend1-f2-bg.jpg');">
+      <div class="container">
+        <div class="row">
+          <?php echo do_shortcode('[contact-form-7 id="243" title="Изучим смету конкурентов"]'); ?>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /section -->
+
     <?php if( have_rows('zigzag' ) ): ?>
       <section class="zigzag-section">
         <div class="container">
@@ -122,11 +142,18 @@
           <div class="row">
             <?php $i = 1; ?>
             <?php while ( have_rows('zigzag' ) ) : the_row(); ?>
-              <?php if (($i % 2) != 0){ ?>
-                <div class="col-md-12">
-                  <div class="row flex-row zigzag-block">
+              <?php $cont_class = 'content_left' ?>
+              <?php $row_class = 'row-left' ?>
+              <?php if (($i % 2) == 0){ ?>
+                <?php $cont_class = 'content_right' ?>
+                <?php $row_class = 'row-right' ?>
+              <?php } ?>
 
-                    <div class="col-sm-6 content_left">
+
+                <div class="col-md-12">
+                  <div class="row row-flex zigzag-block <?php echo $row_class; ?>">
+
+                    <div class="col-sm-6 <?php echo $cont_class; ?>">
 
                         <div class="label-icon"><?php echo $i; ?></div>
                         <div class="title_wrapp">
@@ -143,52 +170,19 @@
                         <?php }  ?>
 
                     </div>
-
                     <div class="col-sm-6 video_wrapp">
 
-<?php $image = get_sub_field('img'); ?>
-                            <?php if ( !empty($image)) : ?>
-                              <img src="<?php echo $image['sizes']['medium']; ?>">
-                            <?php endif; ?>
+                      <?php $image = get_sub_field('img'); ?>
+                      <?php if ( !empty($image)) : ?>
+                        <img src="<?php echo $image['sizes']['medium']; ?>">
+                      <?php endif; ?>
 
                     </div>
 
                   </div>
                 </div>
-              <?php } else { ?>
-                <div class="col-md-12">
-                  <div class="row flex-row zigzag-block">
 
-                    <div class="col-sm-6 video_wrapp">
 
-<?php $image = get_sub_field('img'); ?>
-                            <?php if ( !empty($image)) : ?>
-                              <img src="<?php echo $image['sizes']['medium']; ?>">
-                            <?php endif; ?>
-
-                    </div>
-
-                    <div class="col-sm-6 content_right">
-
-                        <div class="label-icon"><?php echo $i; ?></div>
-                        <div class="title_wrapp">
-                          <h3 class="section-title"><?php the_sub_field('subtitle'); ?></h3>
-                        </div>
-                        <p><?php the_sub_field('content'); ?></p>
-                        <span class="time"><b>Срок : </b> <?php the_sub_field('time'); ?>.</span>
-                        <?php $file = get_sub_field('file'); ?>
-                        <?php if($file) { ?>
-
-                          <div class="file">
-                            <a href="<?php echo $file['url']; ?>" download="<?php echo $file['url']; ?>" class="red-button button">Скачать чек­лист</a>
-                          </div>
-                        <?php }  ?>
-
-                    </div>
-
-                  </div>
-                </div>
-              <?php }  ?>
               <div class="clearfix"></div>
               <?php $i ++; ?>
             <?php endwhile; ?>
@@ -199,6 +193,42 @@
     <?php endif; ?>
 
 
+    <?php if( have_rows('results_amazed' ) ): ?>
+      <?php while ( have_rows('results_amazed' ) ) : the_row(); ?>
+        <section class="results_amazed">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 title_wrapp">
+                <h2 class="section-title"><?php the_sub_field('title'); ?></h2>
+                <span class="subtitle"><?php the_sub_field('subtitle'); ?></span>
+                <div class="clearfix"></div>
+              </div>
+
+              <div class="col-md-10 col-md-offset-1 icons_wrapp">
+                <h3 class="icons_title"><?php the_sub_field('icons_title'); ?></h3>
+                <?php if( get_sub_field('icons' ) ): ?>
+
+                  <div class="row icons row-flex">
+                    <?php while ( has_sub_field('icons' ) ) : ?>
+                      <?php $image = get_sub_field('icon'); ?>
+                      <div class="col-sm-4 col-sm-6 icon">
+                        <div class="icon-wrapp">
+                          <?php if ( !empty($image)) : ?>
+                            <img src="<?php echo $image['sizes']['medium']; ?>">
+                          <?php endif; ?>
+                        </div>
+                        <div class="icon-desc"><?php the_sub_field('desc'); ?></div>
+                      </div>
+                    <?php endwhile; ?>
+                  </div><!-- /.row -->
+                <?php endif; ?>
+              </div>
+            </div><!-- /.row -->
+          </div><!-- /.container -->
+        </section><!-- /section -->
+      <?php  endwhile; ?>
+    <?php endif; ?>
+
     <section class="cont-form" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/lend1-f1-bg.jpg');">
       <div class="container">
         <div class="row">
@@ -207,36 +237,6 @@
       </div><!-- /.container -->
     </section><!-- /section -->
 
-
-
-    <?php if( have_rows('statistic' ) ): ?>
-      <?php while ( have_rows('statistic' ) ) : the_row(); ?>
-        <section class="statistic-section">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12 title_wrapp">
-                <h2 class="section-title"><?php the_sub_field('title'); ?></h2>
-                <span class="red-subtitle"><?php the_sub_field('subtitle'); ?></span>
-                <div class="clearfix"></div>
-              </div>
-              <div class="col-md-10 col-md-offset-1 icons_wrapp">
-                <?php if( get_sub_field('icons' ) ): ?>
-                  <?php while ( has_sub_field('icons' ) ) : ?>
-
-                    <div class="num_icon_wrapp">
-                      <div class="num_icon"><?php the_sub_field('tiltle'); ?></div>
-                      <p><?php the_sub_field('desc'); ?></p>
-                    </div>
-                  <?php endwhile; ?>
-                <?php endif; ?>
-
-              </div>
-
-            </div><!-- /.row -->
-          </div><!-- /.container -->
-        </section><!-- /section -->
-      <?php  endwhile; ?>
-    <?php endif; ?>
 
     <?php if( have_rows('resons' ) ): ?>
       <?php while ( have_rows('resons' ) ) : the_row(); ?>
@@ -247,13 +247,13 @@
             </div>
           </div>
           <div class="container">
-            <div class="row icons flax-row">
+            <div class="row icons flex-row">
 
               <?php if( get_sub_field('icons' ) ): ?>
 
                   <?php while ( has_sub_field('icons' ) ) : ?>
                     <?php $image = get_sub_field('img'); ?>
-                    <div class="col-sm-4 col-xs-6 icon">
+                    <div class="col-md-4 col-sm-6 col-xs-12 icon">
                       <div class="icon-wrapp">
                         <?php if ( !empty($image)) : ?>
                           <img src="<?php echo $image['sizes']['medium']; ?>">

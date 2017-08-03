@@ -135,12 +135,19 @@
         <div class="container">
           <div class="row">
             <?php $i = 1; ?>
-            <?php while ( have_rows('zigzag' ) ) : the_row(); ?>
-              <?php if (($i % 2) != 0){ ?>
-                <div class="col-md-12">
-                  <div class="row flex-row zigzag-block">
+                        <?php while ( have_rows('zigzag' ) ) : the_row(); ?>
+              <?php $cont_class = 'content_left' ?>
+              <?php $row_class = 'row-left' ?>
+              <?php if (($i % 2) == 0){ ?>
+                <?php $cont_class = 'content_right' ?>
+                <?php $row_class = 'row-right' ?>
+              <?php } ?>
 
-                    <div class="col-sm-6 content_left">
+
+                <div class="col-md-12">
+                  <div class="row row-flex zigzag-block <?php echo $row_class; ?>">
+
+                    <div class="col-sm-6 <?php echo $cont_class; ?>">
 
                         <div class="label-icon"><?php echo $i; ?></div>
                         <div class="title_wrapp">
@@ -157,46 +164,14 @@
                         <?php }  ?>
 
                     </div>
-
                     <div class="col-sm-6 video_wrapp">
-
-                        <?php echo get_sub_field('video')["iframe"]; ?>
-
+                      <?php echo get_sub_field('video')["iframe"]; ?>
                     </div>
 
                   </div>
                 </div>
-              <?php } else { ?>
-                <div class="col-md-12">
-                  <div class="row flex-row zigzag-block">
 
-                    <div class="col-sm-6 video_wrapp">
 
-                        <?php echo get_sub_field('video')["iframe"]; ?>
-
-                    </div>
-
-                    <div class="col-sm-6 content_right">
-
-                        <div class="label-icon"><?php echo $i; ?></div>
-                        <div class="title_wrapp">
-                          <h3 class="section-title"><?php the_sub_field('subtitle'); ?></h3>
-                        </div>
-                        <p><?php the_sub_field('content'); ?></p>
-                        <span class="time"><b>Срок : </b> <?php the_sub_field('time'); ?>.</span>
-                        <?php $file = get_sub_field('file'); ?>
-                        <?php if($file) { ?>
-
-                          <div class="file">
-                            <a href="<?php echo $file['url']; ?>" download="<?php echo $file['url']; ?>" class="red-button button">Скачать чек­лист</a>
-                          </div>
-                        <?php }  ?>
-
-                    </div>
-
-                  </div>
-                </div>
-              <?php }  ?>
               <div class="clearfix"></div>
               <?php $i ++; ?>
             <?php endwhile; ?>

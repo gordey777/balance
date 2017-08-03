@@ -65,7 +65,7 @@ $header_class = 'landing_header';
 
           <div class="phone right-bg col-md-3 col-sm-4 col-xs-12">
             <a href="tel:<?php the_field('phone', 43); ?>" class="tel"><?php the_field('phone', 43); ?></a>
-            <a href="#modal_callback" rel="nofollow" data-toggle="modal" class="callback button red-button">Заказвть звонок</a>
+            <a href="#modal_callback" rel="nofollow" data-toggle="modal" class="callback button red-button">Заказать звонок</a>
           </div>
 
           <nav class="nav nav__header" role="navigation">

@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 
+
     <section class="section-1" role="main">
       <div class="container">
         <div class="row">
@@ -11,14 +12,12 @@
       </div><!-- /.container -->
     </section><!-- /section -->
 
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-
     <article  class="news-section">
       <div class="container">
       <div class="row">
 
 
-
+<?php echo $GLOBALS['wp_query']->request; ?>
 
         <?php
         $field = get_field_object('type');
@@ -40,8 +39,8 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
 
         <?php
-        $field_style = get_field_object('style');
-        $values_style = explode(',', $_GET['style']);
+        $field_style = get_field_object('styles');
+        $values_style = explode(',', $_GET['styles']);
 
         //var_dump($field);
 
@@ -62,8 +61,10 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
   </div>
 
+<div class="col-xs-3 col-xs-offse-8">
+  <div id="search_btn" class="red-button button">фильтровать</div>
+</div>
 
-<div id="search_btn" class="red-button button">фильтровать</div>
 
 <script>
   (function($) {
@@ -88,12 +89,14 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 var vals_style_url = '';
 
 if (vals_style.length != 0){
-  vals_style_url = '&style=' + vals_style;
+
+  vals_style_url = '&styles=' + vals_style;
 
 }
 
 
       window.location.replace('<?php echo home_url(); ?>/customsearch/?type=' + vals + vals_style_url);
+
 
       console.log(vals);
       console.log(vals_styles);
@@ -103,22 +106,11 @@ if (vals_style.length != 0){
   })(jQuery);
 
 </script>
-
+<?php //echo do_shortcode( '[searchandfilter taxonomies="category,post_tag" types="radio,checkbox" ]' ); ?>
 
         <div class="row flex-row">
-          <?php
-          $category_id = 1; //ID Рубрики
-          $args = array(
-                  'cat' => 1,
-                  'post_type' => 'post',
-                  'posts_per_page' => 9, //Количество постов в блоке ПОЛЕЗНЫЕ СТАТЬИ
-                  //'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1),
-                  ); ?>
 
-<?php if ($_GET && !empty($_GET)) { // если было передано что-то из формы
-  go_filter(); // запускаем функцию фильтрации
-} ?>
-          <?php query_posts($args); ?>
+
           <?php if (have_posts()): while (have_posts()) : the_post(); ?>
   <div id="post-<?php the_ID(); ?>" <?php post_class('col-sm-4 looper'); ?>>
     <a rel="nofollow" class="feature-img" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
@@ -129,7 +121,8 @@ if (vals_style.length != 0){
       <?php } ?>
     </a><!-- /post thumbnail -->
     <span class="date"><?php the_field('type'); ?></span>
-    <span class="date"><?php the_field('style'); ?></span>
+    <span class="date"><?php the_field('styles'); ?></span>
+
     <h2 class="inner-title"><?php the_title(); ?></h2>
     <?php wpeExcerpt('wpeExcerpt10'); ?>
     <a href="<?php the_permalink(); ?>" class="post-link">Подробнее</a>
@@ -142,6 +135,6 @@ if (vals_style.length != 0){
       </div><!-- /.container -->
     </article><!-- /section -->
 
-FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+
 
 <?php get_footer(); ?>
