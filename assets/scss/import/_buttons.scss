@@ -58,4 +58,32 @@ button {
     color: #fff;
     //border: none;
   }
+  &.gray-button {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 14px 20px;
+
+    transition: all .3s;
+
+    color: #fff;
+    border-color: #777;
+    background: #777;
+    &:hover,
+    &:focus {
+      color: #fff;
+      border-color: darken(#777, 15%);
+      background-color: darken(#777, 15%);
+    }
+    &:focus {
+      outline: none;
+      box-shadow: $form-box-shadow-focus;
+    }
+    &:active {
+      color: lighten(#777, 15%);
+      border-color: lighten(#777, 15%);
+    }
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
 }
