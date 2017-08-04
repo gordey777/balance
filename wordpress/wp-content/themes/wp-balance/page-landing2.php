@@ -4,8 +4,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
-          <h1 class="top-title"><?php the_field('top_title'); ?></h1>
-            <?php echo do_shortcode('[contact-form-7 id="35" title="Контактная форма на главной"]'); ?>
+            <div class="top-title"><?php the_field('top_tiltle'); ?></div>
+            <?php echo do_shortcode('[contact-form-7 id="560" title="Контактная форма Лендиг 2"]'); ?>
 
             <?php if( have_rows('title_icons' ) ): ?>
 
@@ -31,6 +31,29 @@
     </section><!-- /section -->
 
 
+
+    <?php if( have_rows('fairytale' ) ): ?>
+
+        <section class="fairytale-section">
+          <div class="container">
+            <div class="row">
+              <?php while ( have_rows('fairytale' ) ) : the_row(); ?>
+                <?php $image = get_sub_field('img'); ?>
+                <div class="col-md-12 title_wrapp">
+                  <h2 class="section-title"><?php the_sub_field('title'); ?></h2>
+                </div>
+                <div class="col-md-12 img-wrapp">
+                  <?php if ( !empty($image)) : ?>
+                    <img src="<?php echo $image['url']; ?>">
+                  <?php endif; ?>
+                </div>
+
+              <?php endwhile; ?>
+            </div><!-- /.row -->
+          </div><!-- /.container -->
+        </section><!-- /section -->
+
+    <?php endif; ?>
 
     <?php if( have_rows('statistik' ) ): ?>
       <?php while ( have_rows('statistik' ) ) : the_row(); ?>
@@ -123,10 +146,10 @@
     <?php endif; ?>
 
 
-    <section class="cont-form" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/lend1-f2-bg.jpg');">
+    <section class="cont-form" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/lend2-f1-bg.jpg');">
       <div class="container">
         <div class="row">
-          <?php echo do_shortcode('[contact-form-7 id="243" title="Изучим смету конкурентов"]'); ?>
+          <?php echo do_shortcode('[contact-form-7 id="570" title="Давайте посмотрим вашу ситуацию подробнее"]'); ?>
         </div><!-- /.row -->
       </div><!-- /.container -->
     </section><!-- /section -->
@@ -229,10 +252,10 @@
       <?php  endwhile; ?>
     <?php endif; ?>
 
-    <section class="cont-form" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/lend1-f1-bg.jpg');">
+    <section class="cont-form" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/lend2-f2-bg.jpg');">
       <div class="container">
         <div class="row">
-          <?php echo do_shortcode('[contact-form-7 id="242" title="Хотите знать больше о наших услугах"]'); ?>
+          <?php echo do_shortcode('[contact-form-7 id="571" title="Сомневаетесь, нужен ли вам дизайн­-проект"]'); ?>
         </div><!-- /.row -->
       </div><!-- /.container -->
     </section><!-- /section -->
@@ -358,10 +381,10 @@
     <?php endif; ?>
 
 
-    <section class="cont-form" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/lend1-f2-bg.jpg');">
+    <section class="cont-form" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/lend2-f3-bg.jpg');">
       <div class="container">
         <div class="row">
-          <?php echo do_shortcode('[contact-form-7 id="243" title="Изучим смету конкурентов"]'); ?>
+          <?php echo do_shortcode('[contact-form-7 id="572" title="Планируете усовершенствовать интерьер своего дома"]'); ?>
         </div><!-- /.row -->
       </div><!-- /.container -->
     </section><!-- /section -->

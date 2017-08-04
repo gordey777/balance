@@ -27,9 +27,8 @@
         <div class="row filter_wrapp">
 
           <div id="no_results">
-<h2>По Вашему запросу ничего не найдено. <a href="<?php echo get_category_link( $cat__ID ) ?>" class="reset">Вернутся назад?</a></h2>
-
-</div>
+            <h2>По Вашему запросу ничего не найдено. <a href="<?php echo get_category_link( $cat__ID ) ?>" class="reset">Вернутся назад?</a></h2>
+          </div>
 
           <?php
           $field = get_field_object('type');

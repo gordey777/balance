@@ -4,8 +4,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
-          <h1 class="top-title"><?php the_field('top_title'); ?></h1>
-            <?php echo do_shortcode('[contact-form-7 id="35" title="Контактная форма на главной"]'); ?>
+            <div class="top-title"><?php the_field('top_tiltle'); ?></div>
+            <?php echo do_shortcode('[contact-form-7 id="556" title="Контактная форма Лендиг 1"]'); ?>
 
             <?php if( have_rows('title_icons' ) ): ?>
 
@@ -68,13 +68,11 @@
           </div>
           <div class="container">
 
-
-              <?php if( get_sub_field('sub_slider' ) ): ?>
-            <div class="row slides_block">
+            <?php if( get_sub_field('sub_slider' ) ): ?>
+              <div class="row slides_block">
                 <div class="two-slides owl-carousel owl-theme">
                   <?php while ( has_sub_field('sub_slider' ) ) : ?>
                     <?php $image = get_sub_field('img'); ?>
-
                     <div class="ithem">
                       <?php if ( !empty($image)) : ?>
                         <img src="<?php echo $image['sizes']['medium']; ?>">
@@ -83,12 +81,13 @@
                     </div>
                   <?php endwhile; ?>
                 </div><!-- /.two-slides -->
-              <?php endif; ?>
-              <div class="clearfx"></div>
-              <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-                <span class="button red-button">Забудьте об этом</span>
-              </div>
-            </div><!-- /.row -->
+                <div class="clearfx"></div>
+                <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+                  <span class="button red-button">Забудьте об этом</span>
+                </div>
+              </div><!-- /.row -->
+            <?php endif; ?>
+
             <?php if( have_rows('results' ) ): ?>
               <?php while ( have_rows('results' ) ) : the_row(); ?>
                 <div class="row">
@@ -185,7 +184,7 @@
     <section class="cont-form" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/lend1-f1-bg.jpg');">
       <div class="container">
         <div class="row">
-          <?php echo do_shortcode('[contact-form-7 id="242" title="Хотите знать больше о наших услугах"]'); ?>
+          <?php echo do_shortcode('[contact-form-7 id="561" title="Остались вопросы о нашей работе"]'); ?>
         </div><!-- /.row -->
       </div><!-- /.container -->
     </section><!-- /section -->
@@ -307,7 +306,7 @@
     <section class="cont-form" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/lend1-f2-bg.jpg');">
       <div class="container">
         <div class="row">
-          <?php echo do_shortcode('[contact-form-7 id="243" title="Изучим смету конкурентов"]'); ?>
+          <?php echo do_shortcode('[contact-form-7 id="562" title="Хотите заранее узнать полную стоимость ремонта"]'); ?>
         </div><!-- /.row -->
       </div><!-- /.container -->
     </section><!-- /section -->
